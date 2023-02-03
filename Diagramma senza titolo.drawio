@@ -1,1 +1,43 @@
-<mxfile host="app.diagrams.net" modified="2023-02-03T23:06:07.120Z" agent="5.0 (Windows)" version="20.8.16" etag="nzNQprnSJ2M6EOFpkq_Q" type="github"><diagram name="Pagina-1" id="eNxejhJkcg2oES6yqtC5">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2023-02-03T23:24:34.540Z" agent="5.0 (Windows)" etag="j7OrlgX_SghNSNS67QN4" version="20.8.16" type="github">
+  <diagram name="Pagina-1" id="eNxejhJkcg2oES6yqtC5">
+    <mxGraphModel dx="1050" dy="558" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p01Oh5X6uxGRXIhhT5J_-1" value="PLAYER" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p01Oh5X6uxGRXIhhT5J_-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="p01Oh5X6uxGRXIhhT5J_-2" target="p01Oh5X6uxGRXIhhT5J_-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="415" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p01Oh5X6uxGRXIhhT5J_-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="p01Oh5X6uxGRXIhhT5J_-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p01Oh5X6uxGRXIhhT5J_-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.417;entryY=0.033;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="p01Oh5X6uxGRXIhhT5J_-2" target="p01Oh5X6uxGRXIhhT5J_-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="280" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="250" y="115" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p01Oh5X6uxGRXIhhT5J_-2" value="TILE" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="80" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p01Oh5X6uxGRXIhhT5J_-4" value="&lt;div&gt;Walkable&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p01Oh5X6uxGRXIhhT5J_-6" value="Timer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p01Oh5X6uxGRXIhhT5J_-8" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -39,7 +39,7 @@ public class LevelManager : Manager<LevelManager>
     private void ResetCurrentScene()
     {
         ResetCurrentSteps();
-        SceneManager.LoadScene("Scena" + _currentSceneIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void ResetCurrentSteps()

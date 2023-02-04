@@ -28,19 +28,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (Vector3.Distance(transform.position, movePoint.position) <= .05f && !blockMovement)
         {
-            if (Mathf.Abs(Input.GetAxis("Horizontal")) == 1f)
+            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
             {
                 if (CheckMovementPossible(new Vector2(Input.GetAxisRaw("Horizontal"), 0)))
                     PerformMovement(new Vector2(Input.GetAxis("Horizontal"), 0));
             }
-            else if (Mathf.Abs(Input.GetAxis("Vertical")) == 1f)
+            else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
             {
                 if (CheckMovementPossible(new Vector2(0, Input.GetAxisRaw("Vertical"))))
                     PerformMovement(new Vector2(0, Input.GetAxis("Vertical")));
             }
         }
-
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, movementSpeed * Time.deltaTime);
+
     }
 
 

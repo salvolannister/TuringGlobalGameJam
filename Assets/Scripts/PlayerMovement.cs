@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask nonWalkableTiles;
 
     public bool blockMovement = false;
+    private bool isAnimating;
+
     // Start is called before the first frame update
 
     void Start()
@@ -27,19 +29,30 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if (Vector3.Distance(transform.position, movePoint.position) <= .05f && !blockMovement)
+        if(Vector3.Distance(transform.position, movePoint.position) <= .05f && !blockMovement)
         {
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+            if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
             {
-                if (CheckMovementPossible(new Vector2(Input.GetAxisRaw("Horizontal"), 0)))
+                if(CheckMovementPossible(new Vector2(Input.GetAxisRaw("Horizontal"), 0)))
                     PerformMovement(new Vector2(Input.GetAxis("Horizontal"), 0));
             }
-            else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
+            else if(Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
             {
-                if (CheckMovementPossible(new Vector2(0, Input.GetAxisRaw("Vertical"))))
+                if(CheckMovementPossible(new Vector2(0, Input.GetAxisRaw("Vertical"))))
                     PerformMovement(new Vector2(0, Input.GetAxis("Vertical")));
             }
         }
+
+        if(isAnimating && !Input.anyKey)
+        {
+            isAnimating = false;
+            playerAnimator.SetBool("Up", false);
+            playerAnimator.SetBool("Down", false);
+            playerAnimator.SetBool("Left", false);
+            playerAnimator.SetBool("Right", false);
+        }
+
+
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, movementSpeed * Time.deltaTime);
 
     }
@@ -51,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(lastMove);
         movePoint.position = (Vector2)movePoint.position + movement;
         PlayerAnimation(movement);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/"+ _eventName);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/" + _eventName);
         levelManager.UpdateStepsEvenet();
 
     }
@@ -59,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool CheckMovementPossible(Vector2 movement)
     {
-        if (Physics2D.OverlapCircle((Vector2)movePoint.position + movement, .1f, nonWalkableTiles))
+        if(Physics2D.OverlapCircle((Vector2)movePoint.position + movement, .1f, nonWalkableTiles))
             return false;
         return true;
 
@@ -67,25 +80,29 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayerAnimation(Vector2 direction)
     {
+        if(isAnimating) return;
+
         if(direction == Vector2.up)
         {
-            playerAnimator.SetTrigger("IsWalkingUp");
+            playerAnimator.SetBool("Up", true);
             Debug.Log("Walk Up");
         }
         if(direction == Vector2.down)
         {
-            playerAnimator.SetTrigger("IsWalkingDown");
+            playerAnimator.SetBool("Down", true);
             Debug.Log("Walk Down");
         }
         if(direction == Vector2.left)
         {
-            playerAnimator.SetTrigger("IsWalkingLeft");
+            playerAnimator.SetBool("Left", true);
             Debug.Log("Walk Left");
         }
         if(direction == Vector2.right)
         {
-            playerAnimator.SetTrigger("IsWalkingRight");
+            playerAnimator.SetBool("Right", true);
             Debug.Log("Walk Right");
-        }       
+        }
+
+        isAnimating = true;
     }
 }

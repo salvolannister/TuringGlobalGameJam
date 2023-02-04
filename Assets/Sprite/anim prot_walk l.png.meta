@@ -107,10 +107,10 @@ TextureImporter:
       name: anim prot_walk l_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 10
-        height: 31
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: anim prot_walk l_1
       rect:
         serializedVersion: 2
-        x: 19
+        x: 16
         y: 0
-        width: 11
-        height: 30
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +149,10 @@ TextureImporter:
       name: anim prot_walk l_2
       rect:
         serializedVersion: 2
-        x: 35
+        x: 32
         y: 0
-        width: 10
-        height: 31
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,9 +170,9 @@ TextureImporter:
       name: anim prot_walk l_3
       rect:
         serializedVersion: 2
-        x: 51
+        x: 48
         y: 0
-        width: 11
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}

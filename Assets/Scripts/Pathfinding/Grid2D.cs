@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -14,6 +15,11 @@ public class Grid2D : MonoBehaviour
 
     float nodeDiameter;
     public int gridSizeX, gridSizeY;
+    public Action OnGridReady;
+   
+    private bool isGridReady = false;
+
+    public bool IsGridReady { get => isGridReady; set => isGridReady = value; }
 
     void Awake()
     {
@@ -23,10 +29,11 @@ public class Grid2D : MonoBehaviour
         CreateGrid();
     }
 
-    
+
 
     void CreateGrid()
     {
+        isGridReady = false;
         Grid = new Node2D[gridSizeX, gridSizeY];
         worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.up * gridWorldSize.y / 2;
 
@@ -45,6 +52,8 @@ public class Grid2D : MonoBehaviour
 
             }
         }
+        isGridReady = true;
+        OnGridReady?.Invoke();
     }
 
 
@@ -101,11 +110,12 @@ public class Grid2D : MonoBehaviour
 
         int x = Mathf.RoundToInt(worldPosition.x - 1 + (gridSizeX / 2));
         int y = Mathf.RoundToInt(worldPosition.y + (gridSizeY / 2));
+        Debug.Log($" x {x} and y {y}");
         return Grid[x, y];
     }
 
 
-    
+
     //Draws visual representation of grid
     void OnDrawGizmos()
     {

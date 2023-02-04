@@ -18,11 +18,11 @@ public class Pathfinding2D : MonoBehaviour
     }
 
 
-    public void FindPath(Vector3 startPos, Vector3 targetPos)
+    public void FindPath(Vector2Int gridStartPos, Vector2Int gridFinalPos)
     {
         //get player and target position in grid coords
-        seekerNode = grid.NodeFromWorldPoint(startPos);
-        targetNode = grid.NodeFromWorldPoint(targetPos);
+        seekerNode = grid.Grid[gridStartPos.x,gridStartPos.y];
+        targetNode = grid.Grid[gridFinalPos.x, gridFinalPos.y];
 
         List<Node2D> openSet = new List<Node2D>();
         HashSet<Node2D> closedSet = new HashSet<Node2D>();

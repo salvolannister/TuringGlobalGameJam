@@ -31,6 +31,7 @@ public class LevelManager : Manager<LevelManager>
     {
         if (Input.GetButtonDown("Reset"))
             ResetCurrentScene();
+        //Solo per test, Da rimuore in build
         if(Input.GetKeyDown(KeyCode.E))
             LoadNextScene();
         if(Input.GetKeyDown(KeyCode.R))

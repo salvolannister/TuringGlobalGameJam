@@ -22,6 +22,16 @@ public class SnakeController : MonoBehaviour
 
     private void Awake()
     {
+        // Se nella scena è cambiato qualcosa
+            // Deve scegliere la posizione migliore in cui spostarsi
+            // che può essere dritto dx o sx
+
+            // per fare questa scelta deve fare un path finding, da cui poi sceglierà
+            // che posizione prendere.
+
+            // cambiare posizione
+            // reagire al cambio di posizione
+        // Se non è cambiato nulla continua con il percorso scelto
 
     }
     //Check codemonkey a star code algorithm

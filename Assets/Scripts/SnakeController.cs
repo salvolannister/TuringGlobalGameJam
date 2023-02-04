@@ -14,15 +14,15 @@ public class SnakeController : MonoBehaviour
     public int delayTime;
     public int playerStepsTrigger;
     public Transform targetTrs;
-    public LayerMask notWalkableLayer;
+    public LayerMask playerLayer;
 
     private LevelManager levelManager;
     private Transform snakeTransformPos;
     private Vector3 snakeHeadPos;
     private Pathfinding2D snakePath;
 
-    private int i = 0;
-    private Grid2D localGrid;
+    private int nSteps = 0;
+    private Grid2D pathGrid;
     public bool AskForStart = false;
 
     [Tooltip("Position just after the snake in the gird, counting from bottom left")]
@@ -55,9 +55,9 @@ public class SnakeController : MonoBehaviour
         snakePath = GetComponent<Pathfinding2D>();
 
 
-        localGrid = snakePath.GridOwner.GetComponent<Grid2D>();
-        if (!localGrid.IsGridReady)
-            localGrid.OnGridReady += InitSnake;
+        pathGrid = snakePath.GridOwner.GetComponent<Grid2D>();
+        if (!pathGrid.IsGridReady)
+            pathGrid.OnGridReady += InitSnake;
         else
         {
             InitSnake();
@@ -67,7 +67,7 @@ public class SnakeController : MonoBehaviour
     public void InitSnake()
     {
         snakePath.FindPath(startPos, targetPos);
-        localGrid.OnGridReady -= InitSnake;
+        pathGrid.OnGridReady -= InitSnake;
         Invoke(nameof(MoveSnake), 1);
     }
     public void MoveSnake()
@@ -77,67 +77,54 @@ public class SnakeController : MonoBehaviour
 
         var snakePos = Vector3Int.RoundToInt(snakeHeadPos);
         var newSnakeHeadPos = Vector3.one;
-        if (localGrid == null)
+        bool playerFound;
+        if (pathGrid == null)
         {
             return;
         }
 
-        if (localGrid.path != null && i < localGrid.path.Count)
+        if (pathGrid.path != null && nSteps < pathGrid.path.Count)
         {
-            newSnakeHeadPos = localGrid.path[i].worldPosition;
-            Invoke(nameof(MoveSnake), 1);
+
+            newSnakeHeadPos = pathGrid.path[nSteps].worldPosition;
+            playerFound = CheckForPlayer(newSnakeHeadPos);
+            if (!playerFound)
+            {
+                Invoke(nameof(MoveSnake), 1);
+            }
+
         }
         else
         {
-            Debug.Log($" i is {i} and {localGrid.path.Count}");
+            Debug.Log($" nSteps is {nSteps} and {pathGrid.path.Count}");
             return;
         }
-        i++;
+        nSteps++;
 
-      
+
         snakeTileMap.SetTile(snakePos, bodyTile);
         snakeHeadPos = newSnakeHeadPos - offset;
-
+        if (playerFound)
+        {
+            GameManager.GameOver();
+        }
         snakeTransformPos.position = snakeHeadPos;
         FMODUnity.RuntimeManager.PlayOneShot("event:/Footsteps");
-        
-        Debug.Log("Player moved");
-
-       
         Debug.Log($"New position is {newSnakeHeadPos}, old pos is {snakePos}");
 
     }
 
 
-
-    private void WalkStraight(bool up)
+    private bool CheckForPlayer(Vector3 worldPosition)
     {
-        if (up)
-            snakeHeadPos.y += 1;
-        else
-        {
-            snakeHeadPos.y -= 1;
-        }
+        var collider = Physics2D.OverlapCircle(worldPosition, 0.1f, playerLayer);
 
+        return collider && collider.CompareTag("Player");
     }
-
-    private void WalkRight(bool right)
-    {
-        if (right)
-        {
-            snakeHeadPos.y += 1;
-        }
-        else
-        {
-            snakeHeadPos.x -= 1;
-        }
-    }
-
-    void Update()
-    {
-
-
-    }
-
-    
 }
+
+
+
+
+
+

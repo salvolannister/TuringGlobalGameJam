@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638111219156325605
+  lastModified: 638111235830208868
   FileSizes:
   - Name: Desktop
     Value: 810
@@ -43,7 +43,7 @@ MonoBehaviour:
   - {fileID: 1565671992903393450}
   StringsBanks:
   - {fileID: -4265667643432251403}
-  cacheTime: 638111219156325605
+  cacheTime: 638111235830208868
   cacheVersion: 131601
 --- !u!114 &1565671992903393450
 MonoBehaviour:
@@ -60,7 +60,7 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638111219156325605
+  lastModified: 638111235830198870
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -107,7 +107,7 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Footsteps.bank
   Name: Footsteps
   StudioPath: bank:/Footsteps
-  lastModified: 638111219156325605
+  lastModified: 638111235830198870
   FileSizes:
   - Name: Desktop
     Value: 141664

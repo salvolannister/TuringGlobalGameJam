@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="Workspace" id="{e9ea475d-7995-494b-8538-37a5e4383f14}">
+		<property name="builtBanksOutputDirectory">
+			<value>../Serpente/Assets/Build</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{3192e903-a6c6-4b79-9f21-1c21fcf2d2e9}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{1f0d253d-17df-4901-bd92-3b87550ea3c3}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{1c79020f-c3fb-4bf5-8be3-51bc3015c939}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{bd6bf0c5-5ac7-4857-b676-92690361b3ca}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{82a33ca9-6109-48e4-9387-e3b2d8d4c135}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{f0e83190-96ed-4ee1-bb31-7d4e023c28e7}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{0c8c424e-f87d-4f02-b95d-c60d18bc48c2}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{069e48bb-94bb-4541-b98c-0ce999c0fe66}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{c25ab20d-b54f-42b7-9f43-0b43dfc65cdb}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{58f21670-f7fa-4968-bc93-6c3e5aa8be48}</destination>
+		</relationship>
+	</object>
+</objects>

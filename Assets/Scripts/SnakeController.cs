@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,11 +7,15 @@ using UnityEngine.Tilemaps;
 
 public class SnakeController : MonoBehaviour
 {
+    [Header("Tiles"), Space(2)]
     public Tilemap snakeTileMap;
     public Tilemap walkableTileMap;
-    public TileBase bodyTile;
+    public TileBase standardBodyTile;
     public TileBase headTile;
+    public TileBase leftBodyTile;
+    public TileBase rightBodyTile;
 
+    [Header("Setings")]
     public int delayTime;
     public int playerStepsTrigger;
     public Transform targetTrs;
@@ -75,7 +80,7 @@ public class SnakeController : MonoBehaviour
         if (!AskForStart)
             return;
 
-        var snakePos = Vector3Int.RoundToInt(snakeHeadPos);
+        var oldSnakePos = Vector3Int.RoundToInt(snakeHeadPos);
         var newSnakeHeadPos = Vector3.one;
         bool playerFound;
         if (pathGrid == null)
@@ -101,19 +106,40 @@ public class SnakeController : MonoBehaviour
         }
         nSteps++;
 
-
-        snakeTileMap.SetTile(snakePos, bodyTile);
         snakeHeadPos = newSnakeHeadPos - offset;
         if (playerFound)
         {
             GameManager.GameOver();
         }
         snakeTransformPos.position = snakeHeadPos;
+        TileBase bodyTile = GetTileBasedOnMovementDirection(oldSnakePos);
+        snakeTileMap.SetTile(oldSnakePos, bodyTile);
         FMODUnity.RuntimeManager.PlayOneShot("event:/Footsteps");
-        Debug.Log($"New position is {newSnakeHeadPos}, old pos is {snakePos}");
+        Debug.Log($"New position is {newSnakeHeadPos}, old pos is {oldSnakePos}");
 
     }
 
+    private TileBase GetTileBasedOnMovementDirection(Vector3Int oldSnakePos)
+    {
+        //Check if left 
+        var newSnakePos = Vector3Int.RoundToInt(snakeHeadPos);
+        if (newSnakePos.x > oldSnakePos.x)
+        {
+            // moving right
+           
+        }
+        else if (newSnakePos.x < oldSnakePos.x)
+        {
+            // moving left
+        }
+        else
+        {
+            // moving up or down
+        }
+
+        return null;
+        //Check if right
+    }
 
     private bool CheckForPlayer(Vector3 worldPosition)
     {

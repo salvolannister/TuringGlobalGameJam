@@ -4,6 +4,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    LevelManager levelManager;
     [SerializeField] private float movementSpeed = 3f;
     [SerializeField] private Transform movePoint;
     private Vector2 lastMove;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        levelManager = LevelManager.Get();
         movePoint.parent = null;
         lastMove = Vector2.zero;
     }
@@ -47,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
         lastMove = movement;
         Debug.Log(lastMove);
         movePoint.position = (Vector2)movePoint.position + movement;
+        levelManager.UpdateStepsEvenet();
+
     }
 
 

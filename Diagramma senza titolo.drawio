@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-04T00:30:11.016Z" agent="5.0 (Windows)" etag="NxYEtsByJCZd0bRpI3vg" version="20.8.16" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-04T02:03:40.414Z" agent="5.0 (Windows)" etag="MOzcOSeORmQMjJXpEz2l" version="20.8.16" type="github">
   <diagram name="Pagina-1" id="eNxejhJkcg2oES6yqtC5">
     <mxGraphModel dx="875" dy="465" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -39,8 +39,8 @@
         <mxCell id="p01Oh5X6uxGRXIhhT5J_-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="p01Oh5X6uxGRXIhhT5J_-11" target="p01Oh5X6uxGRXIhhT5J_-12">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="p01Oh5X6uxGRXIhhT5J_-11" value="&lt;div&gt;Snake Controller&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="340" y="380" width="120" height="60" as="geometry" />
+        <mxCell id="p01Oh5X6uxGRXIhhT5J_-11" value="&lt;div&gt;Snake Controller&lt;br&gt;initial delay&lt;br&gt;Va verso l&#39;uscita &lt;br&gt;non va verso il player&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="350" width="140" height="110" as="geometry" />
         </mxCell>
         <mxCell id="p01Oh5X6uxGRXIhhT5J_-12" value="&lt;div&gt;Game Manager&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="520" y="380" width="120" height="60" as="geometry" />

@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         lastMove = movement;
         Debug.Log(lastMove);
         movePoint.position = (Vector2)movePoint.position + movement;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Footsteps");
         levelManager.UpdateStepsEvenet();
 
     }

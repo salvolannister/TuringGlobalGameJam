@@ -63,7 +63,7 @@ public class SnakeController : MonoBehaviour
         {
 
         }
-
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Footsteps");
         Debug.Log($"New position is {newSnakeHeadPos}, old pos is {snakePos}");
     }
 

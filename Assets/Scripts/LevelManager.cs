@@ -52,5 +52,11 @@ public class LevelManager : Manager<LevelManager>
         //Output message to the console
         Debug.Log("passi aumentati");
     }
+
+    //fornisce il numero corrente di passi
+    public long RetrieveCurrentSteps()
+    {
+        return _currentSteps;
+    }
 }
 

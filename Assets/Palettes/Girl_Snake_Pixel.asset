@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: cobbles2_40
+  m_Name: Girl_Snake_Pixel
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -1155527318, guid: 847c8a6c348c46e4d92b64a41ecd5d12, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c42a97ca3a9cdb4b9734eb1311b4a93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

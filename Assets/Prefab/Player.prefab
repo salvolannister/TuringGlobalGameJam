@@ -126,13 +126,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5615ec254f741f08f0cc1237c49e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 3
   movePoint: {fileID: 6813367472575103706}
-  _eventName: 
-  playerAnimator: {fileID: 0}
+  _eventName: Footsteps
+  playerAnimator: {fileID: 7652189028336479644}
   nonWalkableTiles:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   blockMovement: 0
 --- !u!1 &6813367473063687516
 GameObject:
@@ -207,7 +207,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1224395379, guid: 135f62caba3d344978e6e99753cc0282, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

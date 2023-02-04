@@ -6,6 +6,8 @@ public class ObstacleSwitch : MonoBehaviour
 {
     LevelManager levelManager;
     SpriteRenderer spriteRenderer;
+    [SerializeField] private bool StartActive=false;
+    [SerializeField] private int Offset = 1;
     [SerializeField] private int EveryNOfTurn=2;
     [SerializeField] [Layer] int wall;
     [SerializeField] [Layer] int defaultLayer;
@@ -19,11 +21,19 @@ public class ObstacleSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (levelManager.RetrieveCurrentSteps() % (2 * EveryNOfTurn + 1) == 0)
+        if (StartActive && levelManager.RetrieveCurrentSteps() == 0)
         {
             ActivateObstacle();
         }
         else {
+            DeactivateObstacle();
+        }
+        if (levelManager.RetrieveCurrentSteps()!=0 && levelManager.RetrieveCurrentSteps() % (EveryNOfTurn + Offset) == 0)
+        {
+            ActivateObstacle();
+        }
+        else if(levelManager.RetrieveCurrentSteps() % (EveryNOfTurn + Offset) != 0)
+        {
             DeactivateObstacle();
         }
     }

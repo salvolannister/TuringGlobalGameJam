@@ -21,7 +21,8 @@ public class LevelManager : Manager<LevelManager>
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Reset"))
+            ResetCurrentScene();
     }
     
     //azzera numero di passi
@@ -38,7 +39,7 @@ public class LevelManager : Manager<LevelManager>
     private void ResetCurrentScene()
     {
         ResetCurrentSteps();
-        SceneManager.LoadScene("Scena" + _currentSceneIndex, LoadSceneMode.Additive);
+        SceneManager.LoadScene("Scena" + _currentSceneIndex);
     }
 
     private void ResetCurrentSteps()

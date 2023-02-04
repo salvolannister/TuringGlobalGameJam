@@ -1,12 +1,12 @@
 using UnityEngine;
-using System.Collections;
-
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
     LevelManager levelManager;
     [SerializeField] private float movementSpeed = 3f;
     [SerializeField] private Transform movePoint;
+    [SerializeField][Tooltip("nome della traccia da inserire")] private String _eventName;
     private Vector2 lastMove;
 
 
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         lastMove = movement;
         Debug.Log(lastMove);
         movePoint.position = (Vector2)movePoint.position + movement;
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Footsteps");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/"+ _eventName);
         levelManager.UpdateStepsEvenet();
 
     }

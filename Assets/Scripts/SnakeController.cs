@@ -81,7 +81,7 @@ public class SnakeController : MonoBehaviour
         {
             return;
         }
-      
+
         if (localGrid.path != null && i < localGrid.path.Count)
         {
             newSnakeHeadPos = localGrid.path[i].worldPosition;
@@ -94,23 +94,20 @@ public class SnakeController : MonoBehaviour
         }
         i++;
 
-        //if (IsTileWalkable(newSnakeHeadPos))
-        //{
+      
         snakeTileMap.SetTile(snakePos, bodyTile);
         snakeHeadPos = newSnakeHeadPos - offset;
-        
+
         snakeTransformPos.position = snakeHeadPos;
-        // snakeTileMap.SetTile(newSnakeHeadPos, headTile);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Footsteps");
+        
         Debug.Log("Player moved");
 
-        //}
-        //else
-        //{
-
-        //}
-
+       
         Debug.Log($"New position is {newSnakeHeadPos}, old pos is {snakePos}");
+
     }
+
 
 
     private void WalkStraight(bool up)
@@ -142,20 +139,5 @@ public class SnakeController : MonoBehaviour
 
     }
 
-    public bool IsTileWalkable(Vector3 tilePos)
-    {
-        Vector2 areaToTest = new Vector2(tilePos.x, tilePos.y);
-        bool isWalkable = !Physics2D.OverlapCircle(areaToTest, 0.1f, notWalkableLayer);
-        // if doesn't find opponened 
-        if (isWalkable)
-        {
-            Debug.Log($"Walkable tile is ${tilePos} ");
-            return true;
-        }
-        else
-        {
-            Debug.Log("Not walkable!!!");
-            return false;
-        }
-    }
+    
 }

@@ -6,22 +6,35 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : Manager<LevelManager>
 {
-    private long _currentSteps;
-    private int _currentSceneIndex;
+    [SerializeField][Tooltip("nome della traccia da inserire")] private String _eventName;
+
+    private long _currentSteps;       
+    private FMOD.Studio.EventInstance instance;
+    GameManager gameManager;
+
     public UnityEvent _updateStepsEvent = new UnityEvent();
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.Get();
         _currentSteps = 0;
-        _currentSceneIndex = 1;
+
         _updateStepsEvent.AddListener(UpdateStepsEvenet);
+        //qui parte la sountrack del gioco
+        //sostituire con una traccia più lunga
+        StartSountrack(_eventName);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Reset"))
+            ResetCurrentScene();
+        //Solo per test, Da rimuore in build
+        if(Input.GetKeyDown(KeyCode.E))
+            LoadNextScene();
+        if(Input.GetKeyDown(KeyCode.R))
             ResetCurrentScene();
     }
     
@@ -30,8 +43,9 @@ public class LevelManager : Manager<LevelManager>
     private void LoadNextScene()
     {
         ResetCurrentSteps();
-        _currentSceneIndex++;
-        SceneManager.LoadScene("Scena"+_currentSceneIndex, LoadSceneMode.Additive);           
+        StopSountrack();
+        gameManager._currentSceneIndex++;
+        SceneManager.LoadScene("Scena"+ gameManager._currentSceneIndex);           
     }
 
     //azzera numero di passi
@@ -39,6 +53,7 @@ public class LevelManager : Manager<LevelManager>
     private void ResetCurrentScene()
     {
         ResetCurrentSteps();
+        StopSountrack();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -58,6 +73,18 @@ public class LevelManager : Manager<LevelManager>
     public long RetrieveCurrentSteps()
     {
         return _currentSteps;
+    }
+
+    private void StartSountrack(String eventName)
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/"+eventName);
+        instance.start();
+    }
+
+    private void StopSountrack()
+    {
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        instance.release();
     }
 }
 

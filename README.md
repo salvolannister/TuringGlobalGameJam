@@ -10,3 +10,6 @@ To implement singlenton use derive from class Manager<T>
 
 # Trello Page
 https://trello.com/invite/b/OARn4aKr/ATTI8184aeb3e87ef16beb69b01d568d772d7382DCCF/turingamejam
+
+# Tutorial
+https://www.youtube.com/watch?v=hPsB6MiJPQY

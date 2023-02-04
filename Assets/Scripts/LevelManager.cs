@@ -50,7 +50,7 @@ public class LevelManager : Manager<LevelManager>
 
     //azzera numero di passi
     //ricarica la scena corrente
-    private void ResetCurrentScene()
+    public void ResetCurrentScene()
     {
         ResetCurrentSteps();
         StopSountrack();
@@ -77,6 +77,12 @@ public class LevelManager : Manager<LevelManager>
 
     private void StartSountrack(String eventName)
     {
+        if(string.IsNullOrEmpty(eventName))
+        {
+            Debug.LogError("Set event name in the editor", this);
+            return;
+        }
+       
         instance = FMODUnity.RuntimeManager.CreateInstance("event:/"+eventName);
         instance.start();
     }

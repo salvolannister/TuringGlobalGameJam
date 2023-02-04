@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movementSpeed = 3f;
     [SerializeField] private Transform movePoint;
     [SerializeField][Tooltip("nome della traccia da inserire")] private String _eventName;
+    [SerializeField] private Animator playerAnimator;
     private Vector2 lastMove;
 
 
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         lastMove = movement;
         Debug.Log(lastMove);
         movePoint.position = (Vector2)movePoint.position + movement;
+        PlayerAnimation(movement);
         FMODUnity.RuntimeManager.PlayOneShot("event:/"+ _eventName);
         levelManager.UpdateStepsEvenet();
 
@@ -61,5 +63,29 @@ public class PlayerMovement : MonoBehaviour
             return false;
         return true;
 
+    }
+
+    private void PlayerAnimation(Vector2 direction)
+    {
+        if(direction == Vector2.up)
+        {
+            playerAnimator.SetTrigger("IsWalkingUp");
+            Debug.Log("Walk Up");
+        }
+        if(direction == Vector2.down)
+        {
+            playerAnimator.SetTrigger("IsWalkingDown");
+            Debug.Log("Walk Down");
+        }
+        if(direction == Vector2.left)
+        {
+            playerAnimator.SetTrigger("IsWalkingLeft");
+            Debug.Log("Walk Left");
+        }
+        if(direction == Vector2.right)
+        {
+            playerAnimator.SetTrigger("IsWalkingRight");
+            Debug.Log("Walk Right");
+        }       
     }
 }

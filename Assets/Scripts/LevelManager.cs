@@ -45,7 +45,7 @@ public class LevelManager : Manager<LevelManager>
         ResetCurrentSteps();
         StopSountrack();
         gameManager._currentSceneIndex++;
-        SceneManager.LoadScene("Scena"+ gameManager._currentSceneIndex);           
+        SceneManager.LoadScene("Level"+ gameManager._currentSceneIndex);           
     }
 
     //azzera numero di passi

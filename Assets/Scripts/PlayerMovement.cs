@@ -31,22 +31,15 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if (Vector3.Distance(transform.position, movePoint.position) <= .05f && !blockMovement )
+        if(Vector3.Distance(transform.position, movePoint.position) <= .05f && !blockMovement)
         {
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
-            {
-                if (CheckMovementPossible(new Vector2(Input.GetAxisRaw("Horizontal"), 0)))
-                    PerformMovement(new Vector2(Input.GetAxis("Horizontal"), 0));
-            }
-            else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
-            {
-                if (CheckMovementPossible(new Vector2(0, Input.GetAxisRaw("Vertical"))))
-                    PerformMovement(new Vector2(0, Input.GetAxis("Vertical")));
-            }
+            CheckAndPerformMovement();
         }
+        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, movementSpeed * Time.deltaTime);
 
 
-        if ((transform.position - movePoint.position).magnitude == 0)
+
+        if((transform.position - movePoint.position).magnitude == 0)
         {
             playerAnimator.SetBool("Up", false);
             playerAnimator.SetBool("Down", false);
@@ -54,14 +47,13 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetBool("Right", false);
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, movementSpeed * Time.deltaTime);
     }
 
 
     public void PerformMovement(Vector2 movement)
     {
         lastMove = movement;
-        Debug.Log(lastMove);
+        Debug.Log("last move " + lastMove);
         movePoint.position = (Vector2)movePoint.position + movement;
         PlayerAnimation(movement);
         FMODUnity.RuntimeManager.PlayOneShot("event:/" + _eventName);
@@ -72,10 +64,24 @@ public class PlayerMovement : MonoBehaviour
 
     public bool CheckMovementPossible(Vector2 movement)
     {
-        if (Physics2D.OverlapCircle((Vector2)movePoint.position + movement, .1f, nonWalkableTiles))
+        if(Physics2D.OverlapCircle((Vector2)movePoint.position + movement, .1f, nonWalkableTiles))
             return false;
-
         return true;
+
+    }
+
+    public void CheckAndPerformMovement()
+    {
+        if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+        {
+            if(CheckMovementPossible(new Vector2(Input.GetAxisRaw("Horizontal"), 0)))
+                PerformMovement(new Vector2(Input.GetAxis("Horizontal"), 0));
+        }
+        else if(Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
+        {
+            if(CheckMovementPossible(new Vector2(0, Input.GetAxisRaw("Vertical"))))
+                PerformMovement(new Vector2(0, Input.GetAxis("Vertical")));
+        }
     }
 
     private void PlayerAnimation(Vector2 direction)

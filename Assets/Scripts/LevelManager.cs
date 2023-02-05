@@ -16,7 +16,7 @@ public class LevelManager : Manager<LevelManager>
     GameManager gameManager;
 
     public Action OnPlayerMove;
-
+    public Action OnLevelFinished;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +47,8 @@ public class LevelManager : Manager<LevelManager>
         ResetCurrentSteps();
         StopSountrack();
         gameManager._currentSceneIndex++;
-        StartCoroutine(StartLoad());      
+        StartCoroutine(StartLoad());
+        OnLevelFinished?.Invoke();
     }
 
     //azzera numero di passi

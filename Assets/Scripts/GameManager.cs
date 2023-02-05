@@ -22,4 +22,9 @@ public class GameManager : Manager<GameManager>
     {
         LevelManager.Get().GameOver();
     }
+
+    public static void StartGame()
+    {
+        LevelManager.Get().LoadNextScene();
+    }
 }

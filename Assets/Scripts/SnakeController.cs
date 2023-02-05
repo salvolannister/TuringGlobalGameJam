@@ -64,7 +64,7 @@ public class SnakeController : MonoBehaviour
     private Vector3 oldDir;
     private Vector3Int oldTonguePos = default;
 
-    
+
     //Check codemonkey a star code algorithm
     void Start()
     {
@@ -94,7 +94,7 @@ public class SnakeController : MonoBehaviour
     }
     public void MoveSnake()
     {
-     
+
         var currentSnakePos = snakeTileMap.WorldToCell(snakeHeadPos);
         var newSnakeHeadPos = Vector3.one;
         bool playerFound;
@@ -112,18 +112,18 @@ public class SnakeController : MonoBehaviour
             if (colliderFound != null)
             {
                 playerFound = IsPlayer(colliderFound);
-                
-                if (!playerFound)
+
+                if (!playerFound && colliderFound.gameObject.layer == LayerMask.NameToLayer("Wall"))
                 {
                     // A wall was hit
-                    levelManager.OnPlayerMove -= MoveSnake;
+                    //levelManager.OnPlayerMove -= MoveSnake;
                     return;
-                   
+
                 }
 
 
             }
-          
+
 
         }
         else
@@ -281,7 +281,7 @@ public class SnakeController : MonoBehaviour
         oldTonguePos = newSnakePos + headDir;
     }
 
-    
+
     private Collider2D CheckForObstacle(Vector3 worldPosition)
     {
         var collider = Physics2D.OverlapCircle(worldPosition, 0.1f, stoppingLayers);

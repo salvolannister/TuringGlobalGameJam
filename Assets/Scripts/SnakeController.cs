@@ -55,7 +55,6 @@ public class SnakeController : MonoBehaviour
 
     private int nSteps = 0;
     private Grid2D pathGrid;
-    public bool AskForStart = false;
 
     [Tooltip("Position just after the snake in the gird, counting from bottom left")]
     public Vector2Int startPos;
@@ -65,22 +64,7 @@ public class SnakeController : MonoBehaviour
     private Vector3 oldDir;
     private Vector3Int oldTonguePos = default;
 
-    private void Awake()
-    {
-        // Se nella scena è cambiato qualcosa
-        // Deve scegliere la posizione migliore in cui spostarsi
-        // che può essere dritto dx o sx
-
-        // per fare questa scelta deve fare un path finding, da cui poi sceglierà
-        // che posizione prendere.
-
-        // cambiare posizione
-        // reagire al cambio di posizione
-        // Se non è cambiato nulla continua con il percorso scelto
-
-
-        // quando non puoi spostarti aggiorna startPosition
-    }
+    
     //Check codemonkey a star code algorithm
     void Start()
     {
@@ -98,19 +82,19 @@ public class SnakeController : MonoBehaviour
         {
             InitSnake();
         }
+
+        levelManager = LevelManager.Get();
+        levelManager.OnPlayerMove += MoveSnake;
     }
 
     public void InitSnake()
     {
         snakePath.FindPath(startPos, targetPos);
         pathGrid.OnGridReady -= InitSnake;
-        Invoke(nameof(MoveSnake), 1);
     }
     public void MoveSnake()
     {
-        if (!AskForStart)
-            return;
-
+     
         var currentSnakePos = snakeTileMap.WorldToCell(snakeHeadPos);
         var newSnakeHeadPos = Vector3.one;
         bool playerFound;
@@ -132,16 +116,14 @@ public class SnakeController : MonoBehaviour
                 if (!playerFound)
                 {
                     // A wall was hit
+                    levelManager.OnPlayerMove -= MoveSnake;
                     return;
                    
                 }
 
 
             }
-            else
-            {
-                Invoke(nameof(MoveSnake), 1);
-            }
+          
 
         }
         else
@@ -299,10 +281,7 @@ public class SnakeController : MonoBehaviour
         oldTonguePos = newSnakePos + headDir;
     }
 
-    private bool IsGoingDown(float newPose, float oldPose)
-    {
-        return newPose < oldPose;
-    }
+    
     private Collider2D CheckForObstacle(Vector3 worldPosition)
     {
         var collider = Physics2D.OverlapCircle(worldPosition, 0.1f, stoppingLayers);
@@ -315,7 +294,10 @@ public class SnakeController : MonoBehaviour
         return collider.CompareTag("Player");
     }
 
-
+    private void OnDestroy()
+    {
+        levelManager.OnPlayerMove -= MoveSnake;
+    }
 }
 
 

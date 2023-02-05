@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{da38add4-5ae9-49e0-8461-f7ecce711218}">
+	<object class="AudioFile" id="{3ceda96a-fc78-434a-ba17-d91522a6b6f8}">
 		<property name="assetPath">
-			<value>Ambience/Ambience_Wind.wav</value>
-		</property>
-		<property name="isStreaming">
-			<value>true</value>
+			<value>Objects/Gate_Slide.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>96</value>
@@ -14,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<property name="length">
-			<value>29</value>
+			<value>1</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{0c8c424e-f87d-4f02-b95d-c60d18bc48c2}</destination>

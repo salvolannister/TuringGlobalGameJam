@@ -310,6 +310,7 @@ MonoBehaviour:
   Banks:
   - Footsteps
   - Objects
+  - Snake
   - Soundtrack
   BanksToLoad: []
   LiveUpdatePort: 9264

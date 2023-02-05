@@ -226,9 +226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: 
-  _updateStepsEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &217550791 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1134460110358316865, guid: e9aefaa188f41a24d85d755a636f1be4, type: 3}
@@ -390,7 +387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090829213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.54, y: 2.52, z: 0}
+  m_LocalPosition: {x: 3.54, y: 0.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1268,7 +1265,6 @@ MonoBehaviour:
   stoppingLayers:
     serializedVersion: 2
     m_Bits: 0
-  AskForStart: 0
   startPos: {x: 0, y: 0}
   targetPos: {x: 0, y: 0}
 --- !u!212 &1572987147

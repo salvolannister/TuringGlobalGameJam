@@ -61,7 +61,7 @@ public class SnakeController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Vector3 oldDir;
-
+    private Vector3Int oldTonguePos;
     private void Awake()
     {
         // Se nella scena è cambiato qualcosa
@@ -219,9 +219,21 @@ public class SnakeController : MonoBehaviour
             }
         }
 
+        var newTonguePos = newSnakePos + headDir;
         snakeTileMap.SetTile(newSnakePos, headTile);
-        snakeTileMap.SetTile(newSnakePos + headDir, tongueTile);
+        snakeTileMap.SetTile(newTonguePos, tongueTile);
         snakeTileMap.SetTile(oldSnakePos, bodyTile);
+
+        if (hasBodyInPrevSquares)
+        {
+           
+            if(oldTonguePos != newSnakePos)
+            {
+                snakeTileMap.SetTile(oldTonguePos, leftBottomBodyCurve);
+            }
+        }
+
+        oldTonguePos = newSnakePos + headDir;
     }
 
     private bool IsGoingDown(float newPose, float oldPose)

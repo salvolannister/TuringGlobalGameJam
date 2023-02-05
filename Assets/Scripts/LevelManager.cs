@@ -79,7 +79,7 @@ public class LevelManager : Manager<LevelManager>
     {
         if(string.IsNullOrEmpty(eventName))
         {
-            Debug.LogError("Set event name in the editor", this);
+            Debug.LogWarning("Set event name in the editor", this);
             return;
         }
        

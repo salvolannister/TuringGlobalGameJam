@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8188405653120750527}
   m_Layer: 0
   m_Name: Snake
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 8188405653120750521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.53, y: -2.51, z: 0}
-  m_LocalScale: {x: 0.5083047, y: 0.5083047, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -77,14 +77,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 7c42a97ca3a9cdb4b9734eb1311b4a93, type: 3}
+  m_Sprite: {fileID: -28557703, guid: 00eea12beef3b4e4397b9131887bf2d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
+  m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
@@ -102,15 +102,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snakeTileMap: {fileID: 0}
   walkableTileMap: {fileID: 0}
-  bodyTile: {fileID: 11400000, guid: a44c8c863d517264c9893264b64de286, type: 2}
+  standardBodyTile: {fileID: 11400000, guid: 206908b89e28dc64d85a002d5ebb006d, type: 2}
   headTile: {fileID: 11400000, guid: b2fd1c22ca3f2754ebb6e455d8cdd399, type: 2}
+  leftBackTile: {fileID: 11400000, guid: 182f347426ec9fd4e8042e3ce55d509e, type: 2}
+  leftBodyTile: {fileID: 0}
+  leftBodyTongueTile: {fileID: 11400000, guid: 2458792355936b2469763b9955f6e918, type: 2}
+  rightBodyTile: {fileID: 1030043323, guid: 00eea12beef3b4e4397b9131887bf2d0, type: 3}
+  rightBodyTongueTile: {fileID: 11400000, guid: a3d01d7c4fd9aee488dc3402f4c433e7, type: 2}
+  rightBackTile: {fileID: 0}
+  bottomBodyTile: {fileID: 11400000, guid: c510992ca822ab543b74be431b82e2bf, type: 2}
+  bottomBodyTongueTile: {fileID: 11400000, guid: a3d01d7c4fd9aee488dc3402f4c433e7, type: 2}
   delayTime: 0
   playerStepsTrigger: 0
   targetTrs: {fileID: 0}
-  notWalkableLayer:
+  playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  AskForStart: 0
+    m_Bits: 1
+  AskForStart: 1
+  startPos: {x: 5, y: 5}
+  targetPos: {x: 2, y: 1}
 --- !u!61 &8188405653120750525
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -128,14 +138,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
-    adaptiveTiling: 0
+    adaptiveTiling: 1
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &8188405653120750524
 Rigidbody2D:

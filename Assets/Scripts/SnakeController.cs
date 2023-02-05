@@ -12,8 +12,31 @@ public class SnakeController : MonoBehaviour
     public Tilemap walkableTileMap;
     public TileBase standardBodyTile;
     public TileBase headTile;
+    [Header("Left tiles")]
+    public TileBase leftBackTile;
     public TileBase leftBodyTile;
-    public TileBase rightBodyTile;
+    public TileBase leftBodyTongueTile;
+    public TileBase leftBottomBodyCurve;
+
+    [Header("Tongue Tiles")]
+    public TileBase rightTongueTile;
+    public TileBase bottomTongueTile;
+
+    [Header("Body Tiles")]
+    public TileBase horizontalBodyTile;
+    public TileBase verticalBodyTile;
+    public TileBase leftBottomBodyTile;
+    public TileBase topRightBodyTile;
+    public TileBase bottomRightBodyTile;
+
+    [Header("Head Tiles")]
+    public TileBase bottomHeadTile;
+    public TileBase rightHeadTile;
+    public TileBase rightBackTile;
+
+    [Header("Bottom Tiles")]
+    public TileBase bottomBodyTile;
+    public TileBase bottomBodyTongueTile;
 
     [Header("Setings")]
     public int delayTime;
@@ -35,6 +58,9 @@ public class SnakeController : MonoBehaviour
     public Vector2Int targetPos;
 
     private Vector3 offset = new Vector3(0.1f, 0.1f, 0);
+    private SpriteRenderer spriteRenderer;
+  
+
     private void Awake()
     {
         // Se nella scena è cambiato qualcosa
@@ -54,6 +80,7 @@ public class SnakeController : MonoBehaviour
     //Check codemonkey a star code algorithm
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         snakeTransformPos = gameObject.transform;
         snakeHeadPos = snakeTransformPos.position;
 
@@ -80,7 +107,7 @@ public class SnakeController : MonoBehaviour
         if (!AskForStart)
             return;
 
-        var oldSnakePos = Vector3Int.RoundToInt(snakeHeadPos);
+        var currentSnakePos = Vector3Int.RoundToInt(snakeHeadPos);
         var newSnakeHeadPos = Vector3.one;
         bool playerFound;
         if (pathGrid == null)
@@ -101,7 +128,7 @@ public class SnakeController : MonoBehaviour
         }
         else
         {
-            Debug.Log($" nSteps is {nSteps} and {pathGrid.path.Count}");
+            Debug.Log($" nSteps is {nSteps} "); //and {pathGrid.path.Count}");
             return;
         }
         nSteps++;
@@ -111,42 +138,102 @@ public class SnakeController : MonoBehaviour
         {
             GameManager.GameOver();
         }
+
         snakeTransformPos.position = snakeHeadPos;
-        TileBase bodyTile = GetTileBasedOnMovementDirection(oldSnakePos);
-        snakeTileMap.SetTile(oldSnakePos, bodyTile);
+        SetTileBasedOnMovementDirection(currentSnakePos);
+        //snakeTileMap.SetTile(currentSnakePos, headTile);
         FMODUnity.RuntimeManager.PlayOneShot("event:/Footsteps");
-        Debug.Log($"New position is {newSnakeHeadPos}, old pos is {oldSnakePos}");
+        Debug.Log($"New position is {newSnakeHeadPos}, old pos is {currentSnakePos}");
 
     }
 
-    private TileBase GetTileBasedOnMovementDirection(Vector3Int oldSnakePos)
+    private void SetTileBasedOnMovementDirection(Vector3Int oldSnakePos)
     {
         //Check if left 
+        TileBase headTile = standardBodyTile;
+        TileBase tongueTile = standardBodyTile;
+        TileBase bodyTile = standardBodyTile;
+
         var newSnakePos = Vector3Int.RoundToInt(snakeHeadPos);
-        if (newSnakePos.x > oldSnakePos.x)
+
+        int tubero = nSteps - 2;
+        Vector3 preOldSnakeWorldPose;
+        Vector3Int tuberoInt = default;
+        Vector3Int bodyDir = default;
+        bool hasBodyInPrevSquares = tubero >= 0;
+
+        if (hasBodyInPrevSquares)
         {
-            // moving right
-           
-        }
-        else if (newSnakePos.x < oldSnakePos.x)
-        {
-            // moving left
-        }
-        else
-        {
-            // moving up or down
+            preOldSnakeWorldPose = pathGrid.path[tubero].worldPosition +offset;
+            tuberoInt = Vector3Int.RoundToInt(preOldSnakeWorldPose);
+            bodyDir = tuberoInt - oldSnakePos;
         }
 
-        return null;
-        //Check if right
+        var headDir = newSnakePos - oldSnakePos;
+
+        if (headDir == Vector3Int.right)
+        {
+            headTile = rightHeadTile;
+            tongueTile = rightTongueTile;
+            bodyTile = horizontalBodyTile;
+
+            if (hasBodyInPrevSquares)
+            {
+                if (bodyDir == Vector3Int.left)
+                {
+                    bodyTile = horizontalBodyTile;
+
+                }
+                else if (bodyDir == Vector3Int.up)
+                {
+                    bodyTile = topRightBodyTile;
+
+                }
+                else if (bodyDir == Vector3Int.down)
+                {
+                    bodyTile = bottomRightBodyTile;
+                }
+            }
+        }
+        else if (headDir == Vector3Int.down)
+        {
+            headTile = bottomHeadTile;
+            tongueTile = bottomTongueTile;
+            bodyTile = verticalBodyTile;
+
+            if (hasBodyInPrevSquares)
+            {
+                if (bodyDir == Vector3Int.left)
+                {
+                    bodyTile = leftBottomBodyTile;
+                }
+                else if (bodyDir == Vector3Int.up)
+                {
+                    bodyTile = verticalBodyTile;
+                }
+                else if (bodyDir == Vector3Int.right)
+                {
+                    bodyTile = bottomRightBodyTile;
+                }
+            }
+        }
+
+        snakeTileMap.SetTile(newSnakePos, headTile);
+        snakeTileMap.SetTile(newSnakePos + headDir, tongueTile);
+        snakeTileMap.SetTile(oldSnakePos, bodyTile);
     }
 
+    private bool IsGoingDown(float newPose, float oldPose)
+    {
+        return newPose < oldPose;
+    }
     private bool CheckForPlayer(Vector3 worldPosition)
     {
         var collider = Physics2D.OverlapCircle(worldPosition, 0.1f, playerLayer);
 
         return collider && collider.CompareTag("Player");
     }
+
 }
 
 

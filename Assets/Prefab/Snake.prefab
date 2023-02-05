@@ -116,10 +116,12 @@ MonoBehaviour:
   verticalBodyTile: {fileID: 11400000, guid: f1423db796729c6419d4350409cf05b1, type: 2}
   leftBottomBodyTile: {fileID: 11400000, guid: 5a5d9e324a70c4e42a55a753ff1e548b, type: 2}
   topRightBodyTile: {fileID: 11400000, guid: 0846f54522f68714da28892880dab32f, type: 2}
-  bottomRightBodyTile: {fileID: 11400000, guid: 5a5d9e324a70c4e42a55a753ff1e548b, type: 2}
+  bottomRightBodyTile: {fileID: 11400000, guid: 182f347426ec9fd4e8042e3ce55d509e, type: 2}
+  topLeftBodyTile: {fileID: 11400000, guid: 81a530f4c75ede84eb522c1f1f583b50, type: 2}
   bottomHeadTile: {fileID: 11400000, guid: fe5f2e85fce95034eb10de6521befa5d, type: 2}
   rightHeadTile: {fileID: 11400000, guid: fc6a301c25f9511448fabc58b7115889, type: 2}
-  rightBackTile: {fileID: 0}
+  leftHeadTile: {fileID: 11400000, guid: e9bc329c7fff4324fb003340f66f3f90, type: 2}
+  upHeadTile: {fileID: 11400000, guid: eaaf356fd13425144b2ce8de1e250710, type: 2}
   bottomBodyTile: {fileID: 11400000, guid: c510992ca822ab543b74be431b82e2bf, type: 2}
   bottomBodyTongueTile: {fileID: 11400000, guid: a3d01d7c4fd9aee488dc3402f4c433e7, type: 2}
   delayTime: 0
@@ -129,8 +131,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   AskForStart: 1
-  startPos: {x: 0, y: 5}
-  targetPos: {x: 5, y: 3}
+  startPos: {x: 2, y: 5}
+  targetPos: {x: 2, y: 1}
 --- !u!61 &8188405653120750525
 BoxCollider2D:
   m_ObjectHideFlags: 0

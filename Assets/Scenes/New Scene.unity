@@ -359,45 +359,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: startPos.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: startPos.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: upHeadTile
-      value: 
-      objectReference: {fileID: 11400000, guid: eaaf356fd13425144b2ce8de1e250710, type: 2}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: targetPos.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: targetPos.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: leftHeadTile
-      value: 
-      objectReference: {fileID: 11400000, guid: e9bc329c7fff4324fb003340f66f3f90, type: 2}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: snakeTileMap
       value: 
       objectReference: {fileID: 1475818975}
     - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: topLeftBodyTile
-      value: 
-      objectReference: {fileID: 11400000, guid: 81a530f4c75ede84eb522c1f1f583b50, type: 2}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: walkableTileMap
       value: 
       objectReference: {fileID: 1530567743}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: bottomRightBodyTile
-      value: 
-      objectReference: {fileID: 11400000, guid: 182f347426ec9fd4e8042e3ce55d509e, type: 2}
     - target: {fileID: 8188405653120750521, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: m_Name
       value: Snake

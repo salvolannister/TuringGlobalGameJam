@@ -42,11 +42,13 @@ public class Lever : MonoBehaviour
                 if (opens[i]) {
                     CloseGate(gates[i]);
                     opens[i] = false;
+                    StartCoroutine(ExampleCoroutine());
                 }
 
                 else {
                     OpenGate(gates[i]);
                     opens[i] = true;
+                    StartCoroutine(ExampleCoroutine());
                 }
 
             }
@@ -76,5 +78,16 @@ public class Lever : MonoBehaviour
             else
                 t.color = new Color(1, 1, 1, 0);
         }
+    }
+    IEnumerator ExampleCoroutine()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Lever");
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(0.5f);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Gate_Slide");
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 }

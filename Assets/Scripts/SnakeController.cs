@@ -102,7 +102,7 @@ public class SnakeController : MonoBehaviour
 
         if (pathGrid.path != null && nSteps < pathGrid.path.Count)
         {
-
+            spriteRenderer.sprite = null;
             newSnakeHeadPos = pathGrid.path[nSteps].worldPosition;
             Collider2D colliderFound = CheckForObstacle(newSnakeHeadPos);
             playerFound = false;

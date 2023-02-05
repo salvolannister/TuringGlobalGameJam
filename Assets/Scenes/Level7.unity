@@ -637,6 +637,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 6.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4172202702101061491, guid: 237bd19cdabd93e428e928627173d09e, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172202702101061491, guid: 237bd19cdabd93e428e928627173d09e, type: 3}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5186953506474289806, guid: 237bd19cdabd93e428e928627173d09e, type: 3}
       propertyPath: obstaclemap
       value: 

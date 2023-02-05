@@ -4,26 +4,10 @@ using UnityEngine;
 
 public class Oil : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerMovement player;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            player.CheckAndPerformMovement();
-        }
-
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerEnter2D");
-        player.CheckAndPerformMovement();
+        if (collision.gameObject.CompareTag("Player"))
+            collision.gameObject.GetComponent<PlayerMovement>().CheckAndPerformLastMovement();
     }
 }

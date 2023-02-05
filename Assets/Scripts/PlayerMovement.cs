@@ -84,6 +84,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void CheckAndPerformLastMovement()
+    {
+        if (CheckMovementPossible(lastMove))
+            PerformMovement(lastMove);
+    }
+
     private void PlayerAnimation(Vector2 direction)
     {
         if (prevDir != direction)

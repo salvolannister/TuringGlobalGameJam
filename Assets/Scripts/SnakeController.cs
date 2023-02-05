@@ -47,11 +47,11 @@ public class SnakeController : MonoBehaviour
     public int playerStepsTrigger;
     public Transform targetTrs;
     public LayerMask stoppingLayers;
+    public Pathfinding2D snakePath;
 
     private LevelManager levelManager;
     private Transform snakeTransformPos;
     private Vector3 snakeHeadPos;
-    private Pathfinding2D snakePath;
 
     private int nSteps = 0;
     private Grid2D pathGrid;
@@ -71,9 +71,6 @@ public class SnakeController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         snakeTransformPos = gameObject.transform;
         snakeHeadPos = snakeTransformPos.position;
-
-        snakePath = FindObjectOfType<Pathfinding2D>();
-
 
         pathGrid = snakePath.GridOwner.GetComponent<Grid2D>();
         if (!pathGrid.IsGridReady)

@@ -5640,6 +5640,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &918154540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 217550794, guid: e9aefaa188f41a24d85d755a636f1be4, type: 3}
+  m_PrefabInstance: {fileID: 1777078736}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00f355bab7b9e84f87c952e41f7d721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1059670978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6444,6 +6455,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1405641235}
     m_Modifications:
     - target: {fileID: 217550794, guid: e9aefaa188f41a24d85d755a636f1be4, type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1777078737}
+    - target: {fileID: 217550794, guid: e9aefaa188f41a24d85d755a636f1be4, type: 3}
       propertyPath: seeker
       value: 
       objectReference: {fileID: 2089398817}
@@ -6505,6 +6520,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9aefaa188f41a24d85d755a636f1be4, type: 3}
+--- !u!114 &1777078737 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1134460110358316878, guid: e9aefaa188f41a24d85d755a636f1be4, type: 3}
+  m_PrefabInstance: {fileID: 1777078736}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f51a91bb07d2d46a62824eccf43541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2034987224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6512,6 +6538,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
+      propertyPath: snakePath
+      value: 
+      objectReference: {fileID: 918154540}
     - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: startPos.x
       value: 5

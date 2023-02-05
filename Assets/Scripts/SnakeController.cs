@@ -229,7 +229,7 @@ public class SnakeController : MonoBehaviour
            
             if(oldTonguePos != newSnakePos)
             {
-                snakeTileMap.SetTile(oldTonguePos, leftBottomBodyCurve);
+                snakeTileMap.SetTile(oldTonguePos, null);
             }
         }
 

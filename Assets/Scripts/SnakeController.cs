@@ -57,9 +57,8 @@ public class SnakeController : MonoBehaviour
     public Vector2Int startPos;
     public Vector2Int targetPos;
 
-    private Vector3 offset = new Vector3(0.1f, 0.1f, 0);
     private SpriteRenderer spriteRenderer;
-  
+
 
     private void Awake()
     {
@@ -107,7 +106,7 @@ public class SnakeController : MonoBehaviour
         if (!AskForStart)
             return;
 
-        var currentSnakePos = Vector3Int.RoundToInt(snakeHeadPos);
+        var currentSnakePos = snakeTileMap.WorldToCell(snakeHeadPos);
         var newSnakeHeadPos = Vector3.one;
         bool playerFound;
         if (pathGrid == null)
@@ -133,7 +132,7 @@ public class SnakeController : MonoBehaviour
         }
         nSteps++;
 
-        snakeHeadPos = newSnakeHeadPos - offset;
+        snakeHeadPos = newSnakeHeadPos ;
         if (playerFound)
         {
             GameManager.GameOver();
@@ -154,7 +153,7 @@ public class SnakeController : MonoBehaviour
         TileBase tongueTile = standardBodyTile;
         TileBase bodyTile = standardBodyTile;
 
-        var newSnakePos = Vector3Int.RoundToInt(snakeHeadPos);
+        var newSnakePos = snakeTileMap.WorldToCell(snakeHeadPos);
 
         int tubero = nSteps - 2;
         Vector3 preOldSnakeWorldPose;
@@ -164,8 +163,8 @@ public class SnakeController : MonoBehaviour
 
         if (hasBodyInPrevSquares)
         {
-            preOldSnakeWorldPose = pathGrid.path[tubero].worldPosition +offset;
-            tuberoInt = Vector3Int.RoundToInt(preOldSnakeWorldPose);
+            preOldSnakeWorldPose = pathGrid.path[tubero].worldPosition ;
+            tuberoInt = snakeTileMap.WorldToCell(preOldSnakeWorldPose);
             bodyDir = tuberoInt - oldSnakePos;
         }
 

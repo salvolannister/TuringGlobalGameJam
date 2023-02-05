@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : Manager<LevelManager>
 {
-    [SerializeField][Tooltip("nome della traccia da inserire")] private String _eventName;
+    [SerializeField][Tooltip("nome della traccia da inserire")] private String _eventName = "Ambience";
 
     private long _currentSteps;       
     private FMOD.Studio.EventInstance instance;
@@ -24,6 +24,7 @@ public class LevelManager : Manager<LevelManager>
         //qui parte la sountrack del gioco
         //sostituire con una traccia più lunga
         StartSountrack(_eventName);
+        Debug.Log("Current Scene: " + gameManager._currentSceneIndex);
     }
 
     // Update is called once per frame
@@ -44,7 +45,7 @@ public class LevelManager : Manager<LevelManager>
     {
         ResetCurrentSteps();
         StopSountrack();
-        gameManager._currentSceneIndex++;
+        gameManager._currentSceneIndex++;        
         SceneManager.LoadScene("Level"+ gameManager._currentSceneIndex);           
     }
 

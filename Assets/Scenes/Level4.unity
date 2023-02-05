@@ -5607,7 +5607,7 @@ Transform:
   - {fileID: 853489018}
   - {fileID: 1405641235}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1405641234
 GameObject:
@@ -6325,6 +6325,7 @@ GameObject:
   - component: {fileID: 2068674814}
   - component: {fileID: 2068674813}
   - component: {fileID: 2068674812}
+  - component: {fileID: 2068674815}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6398,3 +6399,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2068674815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068674811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68729fd2417ac041ba5909c1a955706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventName: Ambience
+  _updateStepsEvent:
+    m_PersistentCalls:
+      m_Calls: []

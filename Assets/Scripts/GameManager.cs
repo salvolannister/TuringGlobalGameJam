@@ -9,6 +9,7 @@ public class GameManager : Manager<GameManager>
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Init Game Manager");
         DontDestroyOnLoad(gameObject);
     }
 

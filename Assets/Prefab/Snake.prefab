@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -28557703, guid: 00eea12beef3b4e4397b9131887bf2d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d4fa2fdecdadcb468baaedc792cc439, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,8 +107,18 @@ MonoBehaviour:
   leftBackTile: {fileID: 11400000, guid: 182f347426ec9fd4e8042e3ce55d509e, type: 2}
   leftBodyTile: {fileID: 0}
   leftBodyTongueTile: {fileID: 11400000, guid: 2458792355936b2469763b9955f6e918, type: 2}
-  rightBodyTile: {fileID: 1030043323, guid: 00eea12beef3b4e4397b9131887bf2d0, type: 3}
-  rightBodyTongueTile: {fileID: 11400000, guid: a3d01d7c4fd9aee488dc3402f4c433e7, type: 2}
+  leftBottomBodyCurve: {fileID: 0}
+  rightTongueTile: {fileID: 11400000, guid: c1c0e68feefe7b34894f70558befada5, type: 2}
+  bottomTongueTile: {fileID: 11400000, guid: 68534aa4e0af5cf44a66541e890d980a, type: 2}
+  leftTongueTile: {fileID: 11400000, guid: 189e0ccc5f7702046b515094fd604fee, type: 2}
+  upTongueTile: {fileID: 11400000, guid: aca16583a500bdf42a8d139bbfbab6e4, type: 2}
+  horizontalBodyTile: {fileID: 11400000, guid: 9d7123b7e92ceaf438de1e1f8ffa5309, type: 2}
+  verticalBodyTile: {fileID: 11400000, guid: f1423db796729c6419d4350409cf05b1, type: 2}
+  leftBottomBodyTile: {fileID: 11400000, guid: 5a5d9e324a70c4e42a55a753ff1e548b, type: 2}
+  topRightBodyTile: {fileID: 11400000, guid: 0846f54522f68714da28892880dab32f, type: 2}
+  bottomRightBodyTile: {fileID: 11400000, guid: 5a5d9e324a70c4e42a55a753ff1e548b, type: 2}
+  bottomHeadTile: {fileID: 11400000, guid: fe5f2e85fce95034eb10de6521befa5d, type: 2}
+  rightHeadTile: {fileID: 11400000, guid: fc6a301c25f9511448fabc58b7115889, type: 2}
   rightBackTile: {fileID: 0}
   bottomBodyTile: {fileID: 11400000, guid: c510992ca822ab543b74be431b82e2bf, type: 2}
   bottomBodyTongueTile: {fileID: 11400000, guid: a3d01d7c4fd9aee488dc3402f4c433e7, type: 2}
@@ -119,8 +129,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   AskForStart: 1
-  startPos: {x: 5, y: 5}
-  targetPos: {x: 2, y: 1}
+  startPos: {x: 0, y: 5}
+  targetPos: {x: 5, y: 3}
 --- !u!61 &8188405653120750525
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138,7 +148,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

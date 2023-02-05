@@ -359,61 +359,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: startPos.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: startPos.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: targetPos.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: targetPos.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: snakeTileMap
       value: 
       objectReference: {fileID: 1475818975}
     - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: rightHeadTile
-      value: 
-      objectReference: {fileID: 11400000, guid: fc6a301c25f9511448fabc58b7115889, type: 2}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: bottomHeadTile
-      value: 
-      objectReference: {fileID: 11400000, guid: fe5f2e85fce95034eb10de6521befa5d, type: 2}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: rightTongueTile
-      value: 
-      objectReference: {fileID: 11400000, guid: c1c0e68feefe7b34894f70558befada5, type: 2}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: walkableTileMap
       value: 
       objectReference: {fileID: 1530567743}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: topRightBodyTile
-      value: 
-      objectReference: {fileID: 11400000, guid: 0846f54522f68714da28892880dab32f, type: 2}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: verticalBodyTile
-      value: 
-      objectReference: {fileID: 11400000, guid: f1423db796729c6419d4350409cf05b1, type: 2}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: horizontalBodyTile
-      value: 
-      objectReference: {fileID: 11400000, guid: 9d7123b7e92ceaf438de1e1f8ffa5309, type: 2}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: leftBottomBodyTile
-      value: 
-      objectReference: {fileID: 11400000, guid: 5a5d9e324a70c4e42a55a753ff1e548b, type: 2}
-    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: bottomRightBodyTile
-      value: 
-      objectReference: {fileID: 11400000, guid: 182f347426ec9fd4e8042e3ce55d509e, type: 2}
     - target: {fileID: 8188405653120750521, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: m_Name
       value: Snake
@@ -428,7 +380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8188405653120750522, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.49919987
+      value: 4.5008
       objectReference: {fileID: 0}
     - target: {fileID: 8188405653120750522, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -460,10 +412,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8188405653120750522, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8188405653120750523, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8188405653120750527, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
@@ -1262,6 +1210,8 @@ MonoBehaviour:
   leftBottomBodyCurve: {fileID: 0}
   rightTongueTile: {fileID: 0}
   bottomTongueTile: {fileID: 0}
+  leftTongueTile: {fileID: 0}
+  upTongueTile: {fileID: 0}
   horizontalBodyTile: {fileID: 0}
   verticalBodyTile: {fileID: 0}
   leftBottomBodyTile: {fileID: 0}
@@ -1439,7 +1389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681074436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5, y: -0.48999977, z: -9.953471}
+  m_LocalPosition: {x: 3.5, y: 4.51, z: -9.953471}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

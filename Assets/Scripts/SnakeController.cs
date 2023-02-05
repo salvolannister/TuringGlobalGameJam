@@ -21,6 +21,8 @@ public class SnakeController : MonoBehaviour
     [Header("Tongue Tiles")]
     public TileBase rightTongueTile;
     public TileBase bottomTongueTile;
+    public TileBase leftTongueTile;
+    public TileBase upTongueTile;
 
     [Header("Body Tiles")]
     public TileBase horizontalBodyTile;
@@ -58,7 +60,7 @@ public class SnakeController : MonoBehaviour
     public Vector2Int targetPos;
 
     private SpriteRenderer spriteRenderer;
-
+    private Vector3 oldDir;
 
     private void Awake()
     {
@@ -155,7 +157,7 @@ public class SnakeController : MonoBehaviour
 
         var newSnakePos = snakeTileMap.WorldToCell(snakeHeadPos);
 
-        int tubero = nSteps - 2;
+        int tubero = nSteps - 3;
         Vector3 preOldSnakeWorldPose;
         Vector3Int tuberoInt = default;
         Vector3Int bodyDir = default;
@@ -163,9 +165,9 @@ public class SnakeController : MonoBehaviour
 
         if (hasBodyInPrevSquares)
         {
-            preOldSnakeWorldPose = pathGrid.path[tubero].worldPosition ;
+            preOldSnakeWorldPose = pathGrid.path[tubero].worldPosition;
             tuberoInt = snakeTileMap.WorldToCell(preOldSnakeWorldPose);
-            bodyDir = tuberoInt - oldSnakePos;
+            bodyDir = tuberoInt - oldSnakePos;//oldSnakePos - tuberoInt;
         }
 
         var headDir = newSnakePos - oldSnakePos;

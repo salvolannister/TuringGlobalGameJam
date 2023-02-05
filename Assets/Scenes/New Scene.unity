@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110083495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 4.5, z: -9.957206}
+  m_LocalPosition: {x: 5.5, y: 0.5, z: -9.957206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -360,11 +360,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: startPos.x
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: startPos.y
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: upHeadTile
@@ -372,11 +372,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: eaaf356fd13425144b2ce8de1e250710, type: 2}
     - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: targetPos.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: targetPos.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: leftHeadTile
@@ -387,9 +387,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1475818975}
     - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
+      propertyPath: topLeftBodyTile
+      value: 
+      objectReference: {fileID: 11400000, guid: 81a530f4c75ede84eb522c1f1f583b50, type: 2}
+    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: walkableTileMap
       value: 
       objectReference: {fileID: 1530567743}
+    - target: {fileID: 8188405653120750520, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
+      propertyPath: bottomRightBodyTile
+      value: 
+      objectReference: {fileID: 11400000, guid: 182f347426ec9fd4e8042e3ce55d509e, type: 2}
     - target: {fileID: 8188405653120750521, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: m_Name
       value: Snake
@@ -400,11 +408,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8188405653120750522, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.5033
+      value: 5.5032997
       objectReference: {fileID: 0}
     - target: {fileID: 8188405653120750522, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.49919987
+      value: 4.5008
       objectReference: {fileID: 0}
     - target: {fileID: 8188405653120750522, guid: 9c68f0e972d07dd4cb9e563a04fdaf4f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1241,6 +1249,7 @@ MonoBehaviour:
   leftBottomBodyTile: {fileID: 0}
   topRightBodyTile: {fileID: 0}
   bottomRightBodyTile: {fileID: 0}
+  topLeftBodyTile: {fileID: 0}
   bottomHeadTile: {fileID: 0}
   rightHeadTile: {fileID: 0}
   leftHeadTile: {fileID: 0}
@@ -1414,7 +1423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681074436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.5, y: -0.48999977, z: -9.953471}
+  m_LocalPosition: {x: 5.5, y: 4.51, z: -9.953471}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

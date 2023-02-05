@@ -30,6 +30,7 @@ public class SnakeController : MonoBehaviour
     public TileBase leftBottomBodyTile;
     public TileBase topRightBodyTile;
     public TileBase bottomRightBodyTile;
+    public TileBase topLeftBodyTile;
 
     [Header("Head Tiles")]
     public TileBase bottomHeadTile;
@@ -63,7 +64,6 @@ public class SnakeController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Vector3 oldDir;
     private Vector3Int oldTonguePos = default;
-    
 
     private void Awake()
     {
@@ -231,7 +231,7 @@ public class SnakeController : MonoBehaviour
             {
                 if (bodyDir == Vector3Int.up)
                 {
-                    bodyTile = verticalBodyTile;
+                    bodyTile = topLeftBodyTile;
                 }
                 else if (bodyDir == Vector3Int.down)
                 {
@@ -239,7 +239,7 @@ public class SnakeController : MonoBehaviour
                 }
                 else if (bodyDir == Vector3Int.right)
                 {
-                    bodyTile = bottomRightBodyTile;
+                    bodyTile = horizontalBodyTile;
                 }
             }
         }else if(headDir == Vector3Int.up)
@@ -252,7 +252,7 @@ public class SnakeController : MonoBehaviour
             {
                 if (bodyDir == Vector3Int.left)
                 {
-                    bodyTile = leftBottomBodyTile;
+                    bodyTile = topLeftBodyTile;
                 }
                 else if (bodyDir == Vector3Int.down)
                 {
@@ -265,6 +265,7 @@ public class SnakeController : MonoBehaviour
             }
 
         }
+
 
         var newTonguePos = newSnakePos + headDir;
         snakeTileMap.SetTile(newSnakePos, headTile);

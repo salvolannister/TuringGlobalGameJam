@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Snake.bank
   Name: Snake
   StudioPath: bank:/Snake
-  lastModified: 638111918900000000
+  lastModified: 638111956600477247
   FileSizes: []
   Exists: 1
 --- !u!114 &-4466770577211086888
@@ -87,7 +87,7 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638111918900000000
+  lastModified: 638111956600457339
   FileSizes:
   - Name: 
     Value: 1486
@@ -256,7 +256,7 @@ MonoBehaviour:
   - {fileID: 1565671992903393450}
   StringsBanks:
   - {fileID: -4265667643432251403}
-  cacheTime: 638111918900000000
+  cacheTime: 638111956600477247
   cacheVersion: 131601
 --- !u!114 &577014342985285350
 MonoBehaviour:
@@ -300,7 +300,7 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638111918900000000
+  lastModified: 638111956600457339
   FileSizes: []
   Exists: 1
 --- !u!114 &2127258556676167119
@@ -345,7 +345,7 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Objects.bank
   Name: Objects
   StudioPath: bank:/Objects
-  lastModified: 638111918900000000
+  lastModified: 638111956600467264
   FileSizes: []
   Exists: 1
 --- !u!114 &4015488857918371474

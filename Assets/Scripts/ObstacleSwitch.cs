@@ -13,6 +13,7 @@ public class ObstacleSwitch : MonoBehaviour
     [SerializeField] private Sprite noSpike;
     [SerializeField] private Sprite nearSpike;
     [SerializeField] private Sprite spike;
+    [SerializeField] private bool hasAudio = true;
     public enum State {Active, Near, NotActive};
     public State state;
 
@@ -75,6 +76,11 @@ public class ObstacleSwitch : MonoBehaviour
     public void ActivateObstacle() {
         gameObject.layer = wall;
         spriteRenderer.sprite = spike;
+        if(hasAudio)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Spikes_Up");
+        }
+        
     }
 
     public void NearActivateObstacle()

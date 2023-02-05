@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a35600fa-af6b-4342-872e-fb9b1c186b7c}">
+		<property name="assetPath">
+			<value>Soundtrack/Teaser_Song.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>24.3125</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0c8c424e-f87d-4f02-b95d-c60d18bc48c2}</destination>
+		</relationship>
+	</object>
+</objects>

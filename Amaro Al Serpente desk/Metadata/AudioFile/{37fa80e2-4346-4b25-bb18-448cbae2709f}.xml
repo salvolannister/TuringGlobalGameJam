@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{37fa80e2-4346-4b25-bb18-448cbae2709f}">
+		<property name="assetPath">
+			<value>Ambience/Scream_1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>8.7644166666666674</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0c8c424e-f87d-4f02-b95d-c60d18bc48c2}</destination>
+		</relationship>
+	</object>
+</objects>

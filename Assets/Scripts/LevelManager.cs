@@ -22,7 +22,6 @@ public class LevelManager : Manager<LevelManager>
     {
         gameManager = GameManager.Get();
         _currentSteps = 0;
-
         
         //qui parte la sountrack del gioco
         //sostituire con una traccia più lunga
@@ -56,6 +55,7 @@ public class LevelManager : Manager<LevelManager>
     //ricarica la scena corrente
     public void ResetCurrentScene()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Ui_Restart");
         ResetCurrentSteps();
         StopSountrack();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -107,6 +107,7 @@ public class LevelManager : Manager<LevelManager>
             yield return null;
         }
         yield return StartCoroutine(FadeLoadingScreen(0, 1));
+        yield return new WaitForSeconds(3);
         _loadingScreen.gameObject.SetActive(false);
     }
     IEnumerator FadeLoadingScreen(float targetValue, float duration)

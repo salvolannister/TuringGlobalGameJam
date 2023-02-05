@@ -42,9 +42,36 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Snake.bank
   Name: Snake
   StudioPath: bank:/Snake
-  lastModified: 638111978317330792
+  lastModified: 638112021300000000
   FileSizes: []
   Exists: 1
+--- !u!114 &-4592292640979633696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Soundtrack/Teaser_Song
+  m_EditorClassIdentifier: 
+  Path: event:/Soundtrack/Teaser_Song
+  Guid:
+    Data1: 1048711962
+    Data2: 1136801724
+    Data3: -116632431
+    Data4: -1593031746
+  Banks:
+  - {fileID: -1852411436868428145}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4466770577211086888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,10 +114,10 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638111978317310706
+  lastModified: 638112021300000000
   FileSizes:
   - Name: 
-    Value: 1486
+    Value: 1758
   Exists: 1
 --- !u!114 &-3327150403719717661
 MonoBehaviour:
@@ -188,7 +215,7 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Soundtrack.bank
   Name: Soundtrack
   StudioPath: bank:/Soundtrack
-  lastModified: 638111918900000000
+  lastModified: 638112021320000000
   FileSizes: []
   Exists: 1
 --- !u!114 &-1628595659022733767
@@ -211,6 +238,33 @@ MonoBehaviour:
     Data4: -2116497669
   Banks:
   - {fileID: -5025133884855303720}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-167958626442354419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Ui_Generic
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Ui_Generic
+  Guid:
+    Data1: 1937163662
+    Data2: 1232267318
+    Data3: 516800184
+    Data4: -2022709781
+  Banks:
+  - {fileID: 3196312212412406551}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -251,12 +305,16 @@ MonoBehaviour:
   - {fileID: -1628595659022733767}
   - {fileID: 4015488857918371474}
   - {fileID: -5044094890249628928}
+  - {fileID: 6351892791835047167}
+  - {fileID: -167958626442354419}
+  - {fileID: 3551876970516823613}
+  - {fileID: -4592292640979633696}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1565671992903393450}
   StringsBanks:
   - {fileID: -4265667643432251403}
-  cacheTime: 638111978317330792
+  cacheTime: 638112021320000000
   cacheVersion: 131601
 --- !u!114 &577014342985285350
 MonoBehaviour:
@@ -300,7 +358,7 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638111978317310706
+  lastModified: 638112021300000000
   FileSizes: []
   Exists: 1
 --- !u!114 &2127258556676167119
@@ -345,9 +403,36 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Objects.bank
   Name: Objects
   StudioPath: bank:/Objects
-  lastModified: 638111978317320802
+  lastModified: 638112021300000000
   FileSizes: []
   Exists: 1
+--- !u!114 &3551876970516823613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Spike_Trembling
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Spike_Trembling
+  Guid:
+    Data1: -1665083983
+    Data2: 1110972579
+    Data3: 60687008
+    Data4: -995930055
+  Banks:
+  - {fileID: 3196312212412406551}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3875
 --- !u!114 &4015488857918371474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,9 +556,36 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Footsteps.bank
   Name: Footsteps
   StudioPath: bank:/Footsteps
-  lastModified: 638111918900000000
+  lastModified: 638112021280000000
   FileSizes: []
   Exists: 1
+--- !u!114 &6351892791835047167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Ui_Restart
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Ui_Restart
+  Guid:
+    Data1: -957138378
+    Data2: 1337608056
+    Data3: 1324722847
+    Data4: -705617610
+  Banks:
+  - {fileID: 3196312212412406551}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &9199444573587317475
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] [Tooltip("nome della traccia da inserire")] private String _eventName;
     [SerializeField] private Animator playerAnimator;
     private Vector2 lastMove;
+    private bool isMoving = false;
 
 
     [SerializeField] private LayerMask nonWalkableTiles;
@@ -41,6 +42,11 @@ public class PlayerMovement : MonoBehaviour
 
         if((transform.position - movePoint.position).magnitude == 0)
         {
+            if (isMoving)
+            {
+                levelManager.UpdateStepsEvenet();
+                isMoving = false;
+            }
             playerAnimator.SetBool("Up", false);
             playerAnimator.SetBool("Down", false);
             playerAnimator.SetBool("Left", false);
@@ -57,8 +63,10 @@ public class PlayerMovement : MonoBehaviour
         movePoint.position = (Vector2)movePoint.position + movement;
         PlayerAnimation(movement);
         FMODUnity.RuntimeManager.PlayOneShot("event:/" + _eventName);
-        if(!lastMovement)
-            levelManager.UpdateStepsEvenet();
+        if (!lastMovement) {
+            isMoving = true;
+        }
+            
         prevTime = Time.time;
     }
 

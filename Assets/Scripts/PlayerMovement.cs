@@ -50,14 +50,15 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public void PerformMovement(Vector2 movement)
+    public void PerformMovement(Vector2 movement, bool lastMovement=false)
     {
         lastMove = movement;
         Debug.Log("last move " + lastMove);
         movePoint.position = (Vector2)movePoint.position + movement;
         PlayerAnimation(movement);
         FMODUnity.RuntimeManager.PlayOneShot("event:/" + _eventName);
-        levelManager.UpdateStepsEvenet();
+        if(!lastMovement)
+            levelManager.UpdateStepsEvenet();
         prevTime = Time.time;
     }
 
@@ -87,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
     public void CheckAndPerformLastMovement()
     {
         if (CheckMovementPossible(lastMove))
-            PerformMovement(lastMove);
+            PerformMovement(lastMove, true);
     }
 
     private void PlayerAnimation(Vector2 direction)

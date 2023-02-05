@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -611334518, guid: 89814ed83be08425bb98ed070741596c, type: 3}
+  m_Sprite: {fileID: -1142975522, guid: 3f0474106c9bb70449e46dace56e7962, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6142625018312961813}
   - component: {fileID: 6142625018312961815}
   m_Layer: 0
-  m_Name: Lever
+  m_Name: LeverRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,5 +160,5 @@ MonoBehaviour:
   defaultLayer: 0
   wallLayer: 6
   opens: 
-  leftLever: {fileID: -1114134582, guid: 3f0474106c9bb70449e46dace56e7962, type: 3}
-  rightLever: {fileID: -1937787892, guid: 3f0474106c9bb70449e46dace56e7962, type: 3}
+  leftLever: {fileID: -1142975522, guid: 3f0474106c9bb70449e46dace56e7962, type: 3}
+  rightLever: {fileID: -1558588093, guid: 3f0474106c9bb70449e46dace56e7962, type: 3}

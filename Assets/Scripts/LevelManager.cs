@@ -15,14 +15,15 @@ public class LevelManager : Manager<LevelManager>
     private FMOD.Studio.EventInstance instance;
     GameManager gameManager;
 
-    public UnityEvent _updateStepsEvent = new UnityEvent();
+    public Action OnPlayerMove;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameManager.Get();
         _currentSteps = 0;
-        _updateStepsEvent.AddListener(UpdateStepsEvenet);
+
+        
         //qui parte la sountrack del gioco
         //sostituire con una traccia più lunga
         StartSountrack(_eventName);
@@ -69,6 +70,7 @@ public class LevelManager : Manager<LevelManager>
         _currentSteps++;
         //Output message to the console
         Debug.Log("passi aumentati");
+        OnPlayerMove?.Invoke();
     }
 
     //fornisce il numero corrente di passi

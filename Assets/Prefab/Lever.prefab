@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6142625017393140800}
   - component: {fileID: 6142625017393140803}
-  - component: {fileID: 247568298376427408}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -85,26 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &247568298376427408
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6142625017393140801}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 75c9d451c4be2451abbd8540aedb7798, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6142625018312961808
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,5 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gates: []
   defaultLayer: 0
-  wallLayer: 0
+  wallLayer: 6
   opens: 
+  leftLever: {fileID: -1114134582, guid: 3f0474106c9bb70449e46dace56e7962, type: 3}
+  rightLever: {fileID: -1937787892, guid: 3f0474106c9bb70449e46dace56e7962, type: 3}

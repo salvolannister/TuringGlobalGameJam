@@ -178,8 +178,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c54d807d5af4a4ca34bee7ead62487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartActive: 0
-  Offset: 1
-  EveryNOfTurn: 2
+  Offset: 0
+  EveryNOfTurn: 3
   wall: 6
   defaultLayer: 0
+  noSpike: {fileID: 1764989472, guid: 3f0474106c9bb70449e46dace56e7962, type: 3}
+  nearSpike: {fileID: -1172519316, guid: 3f0474106c9bb70449e46dace56e7962, type: 3}
+  spike: {fileID: -809235060, guid: 3f0474106c9bb70449e46dace56e7962, type: 3}
+  state: 0

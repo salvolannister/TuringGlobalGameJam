@@ -1,5 +1,77 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5044094890249628928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Snake/Hiss
+  m_EditorClassIdentifier: 
+  Path: event:/Snake/Hiss
+  Guid:
+    Data1: 1410814939
+    Data2: 1287302116
+    Data3: -386043208
+    Data4: 1038845902
+  Banks:
+  - {fileID: -5025133884855303720}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &-5025133884855303720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Snake.bank
+  m_EditorClassIdentifier: 
+  Path: Amaro Al Serpente desk/Build/Desktop/Snake.bank
+  Name: Snake
+  StudioPath: bank:/Snake
+  lastModified: 638111956600477247
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-4466770577211086888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Object_Hit
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Object_Hit
+  Guid:
+    Data1: -232626600
+    Data2: 1279426135
+    Data3: 309105028
+    Data4: 772742823
+  Banks:
+  - {fileID: 3196312212412406551}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4265667643432251403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +87,10 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638111560165258595
+  lastModified: 638111956600457339
   FileSizes:
   - Name: 
-    Value: 1084
+    Value: 1486
   Exists: 1
 --- !u!114 &-3327150403719717661
 MonoBehaviour:
@@ -40,14 +112,14 @@ MonoBehaviour:
     Data4: 174394068
   Banks:
   - {fileID: 1565671992903393450}
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 28000
---- !u!114 &-2682562261091356567
+  Length: 10000
+--- !u!114 &-3208933169579290900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,14 +129,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Object_Hit
+  m_Name: event:/Objects/Oil_Slide
   m_EditorClassIdentifier: 
-  Path: event:/Object_Hit
+  Path: event:/Objects/Oil_Slide
   Guid:
-    Data1: -232626600
-    Data2: 1279426135
-    Data3: 309105028
-    Data4: 772742823
+    Data1: 640874347
+    Data2: 1292058970
+    Data3: -1795710066
+    Data4: -1974947828
   Banks:
   - {fileID: 3196312212412406551}
   IsStream: 0
@@ -116,10 +188,10 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Soundtrack.bank
   Name: Soundtrack
   StudioPath: bank:/Soundtrack
-  lastModified: 638111560165278603
+  lastModified: 638111918900000000
   FileSizes: []
   Exists: 1
---- !u!114 &-890500232985408433
+--- !u!114 &-1628595659022733767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,16 +201,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Spikes_Up
+  m_Name: event:/Snake/Kill
   m_EditorClassIdentifier: 
-  Path: event:/Spikes_Up
+  Path: event:/Snake/Kill
   Guid:
-    Data1: 935403382
-    Data2: 1183196146
-    Data3: -268296576
-    Data4: 1141735084
+    Data1: -1161612960
+    Data2: 1323275841
+    Data3: -1742641525
+    Data4: -2116497669
   Banks:
-  - {fileID: 3196312212412406551}
+  - {fileID: -5025133884855303720}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -164,19 +236,55 @@ MonoBehaviour:
   - {fileID: 1565671992903393450}
   - {fileID: 3196312212412406551}
   - {fileID: -1852411436868428145}
+  - {fileID: -5025133884855303720}
   EditorEvents:
   - {fileID: 4860157664795189876}
-  - {fileID: -2682562261091356567}
-  - {fileID: -890500232985408433}
   - {fileID: -2416435370435802619}
   - {fileID: -3327150403719717661}
+  - {fileID: 9199444573587317475}
+  - {fileID: -4466770577211086888}
+  - {fileID: -3208933169579290900}
+  - {fileID: 2127258556676167119}
+  - {fileID: 577014342985285350}
+  - {fileID: 4363699597546508253}
+  - {fileID: 6029312504606172125}
+  - {fileID: -1628595659022733767}
+  - {fileID: 4015488857918371474}
+  - {fileID: -5044094890249628928}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1565671992903393450}
   StringsBanks:
   - {fileID: -4265667643432251403}
-  cacheTime: 638111560165278603
+  cacheTime: 638111956600477247
   cacheVersion: 131601
+--- !u!114 &577014342985285350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Gate_Slide
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Gate_Slide
+  Guid:
+    Data1: -459512148
+    Data2: 1247284319
+    Data3: -750597758
+    Data4: 100784767
+  Banks:
+  - {fileID: 3196312212412406551}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1565671992903393450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,9 +300,36 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638111560165258595
+  lastModified: 638111956600457339
   FileSizes: []
   Exists: 1
+--- !u!114 &2127258556676167119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Spikes_Up
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Spikes_Up
+  Guid:
+    Data1: 935403382
+    Data2: 1183196146
+    Data3: -268296576
+    Data4: 1141735084
+  Banks:
+  - {fileID: 3196312212412406551}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &3196312212412406551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,9 +345,63 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Objects.bank
   Name: Objects
   StudioPath: bank:/Objects
-  lastModified: 638111560165268598
+  lastModified: 638111956600467264
   FileSizes: []
   Exists: 1
+--- !u!114 &4015488857918371474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Snake/Crawl
+  m_EditorClassIdentifier: 
+  Path: event:/Snake/Crawl
+  Guid:
+    Data1: -1736781658
+    Data2: 1251215463
+    Data3: -1739959659
+    Data4: -1793423093
+  Banks:
+  - {fileID: -5025133884855303720}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &4363699597546508253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Lever
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Lever
+  Guid:
+    Data1: 1440613875
+    Data2: 1116508295
+    Data3: 1575515520
+    Data4: 365127961
+  Banks:
+  - {fileID: 3196312212412406551}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4860157664795189876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +429,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &6029312504606172125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Snake/Near
+  m_EditorClassIdentifier: 
+  Path: event:/Snake/Near
+  Guid:
+    Data1: 1221489737
+    Data2: 1188622829
+    Data3: 634929289
+    Data4: -1459431389
+  Banks:
+  - {fileID: -5025133884855303720}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6169816147847985739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +471,33 @@ MonoBehaviour:
   Path: Amaro Al Serpente desk/Build/Desktop/Footsteps.bank
   Name: Footsteps
   StudioPath: bank:/Footsteps
-  lastModified: 638111297740000000
+  lastModified: 638111918900000000
   FileSizes: []
   Exists: 1
+--- !u!114 &9199444573587317475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Spikes_Kill
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Spikes_Kill
+  Guid:
+    Data1: 1256688932
+    Data2: 1217284125
+    Data3: 1478869384
+    Data4: -504592385
+  Banks:
+  - {fileID: 3196312212412406551}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0

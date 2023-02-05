@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : Manager<LevelManager>
 {
+    [SerializeField][Tooltip("Loading page")] private Canvas _loadingScreen;
     [SerializeField][Tooltip("nome della traccia da inserire")] private String _eventName;
 
     private long _currentSteps;       
@@ -40,12 +43,12 @@ public class LevelManager : Manager<LevelManager>
     
     //azzera numero di passi
     //carica scena successiva
-    private void LoadNextScene()
+    public void LoadNextScene()
     {
         ResetCurrentSteps();
         StopSountrack();
         gameManager._currentSceneIndex++;
-        SceneManager.LoadScene("Level"+ gameManager._currentSceneIndex);           
+        StartCoroutine(StartLoad());      
     }
 
     //azzera numero di passi
@@ -92,6 +95,32 @@ public class LevelManager : Manager<LevelManager>
     {
         instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         instance.release();
+    }
+    IEnumerator StartLoad()
+    {
+        _loadingScreen.gameObject.SetActive(true);
+        yield return StartCoroutine(FadeLoadingScreen(1, 1));
+        AsyncOperation operation = SceneManager.LoadSceneAsync("Level" + gameManager._currentSceneIndex);
+        while(!operation.isDone)
+        {
+            yield return null;
+        }
+        yield return StartCoroutine(FadeLoadingScreen(0, 1));
+        _loadingScreen.gameObject.SetActive(false);
+    }
+    IEnumerator FadeLoadingScreen(float targetValue, float duration)
+    {
+        float startValue = _loadingScreen.GetComponentInChildren<Image>().color.a;
+        float time = 0;
+        var tempColor = _loadingScreen.GetComponentInChildren<Image>().color;
+        while(time < duration)
+        {
+            tempColor.a = Mathf.Lerp(startValue, targetValue, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        tempColor.a = targetValue;
+        _loadingScreen.GetComponentInChildren<Image>().color = tempColor;
     }
 }
 

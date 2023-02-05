@@ -9,7 +9,7 @@ public class Oil : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerMovement>().CheckAndPerformLastMovement();
+            collision.gameObject.GetComponent<PlayerMovement>()?.CheckAndPerformLastMovement();
             FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Oil_Slide");
         }            
     }

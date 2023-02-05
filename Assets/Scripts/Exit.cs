@@ -19,8 +19,11 @@ public class Exit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("On Exit");
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Soundtrack/Lvl_Passed");
-        levelManager.LoadNextScene();
+        if(collision.CompareTag("Player"))
+        {
+            Debug.Log("On Exit");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Soundtrack/Lvl_Passed");
+            levelManager.LoadNextScene();
+        }        
     }
 }

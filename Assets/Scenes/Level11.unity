@@ -1418,7 +1418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5409982556973361087, guid: 4aea2ea888db44763a503594b0054e54, type: 3}
       propertyPath: hasAudio
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5409982556973361087, guid: 4aea2ea888db44763a503594b0054e54, type: 3}
       propertyPath: EveryNOfTurn
@@ -1487,7 +1487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5409982556973361087, guid: 4aea2ea888db44763a503594b0054e54, type: 3}
       propertyPath: hasAudio
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5409982556973361087, guid: 4aea2ea888db44763a503594b0054e54, type: 3}
       propertyPath: EveryNOfTurn

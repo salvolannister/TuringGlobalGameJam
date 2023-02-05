@@ -23,7 +23,7 @@ public class RestartButton : MonoBehaviour
         restartButton.onClick.RemoveListener(RestartScene);
     }
 
-    private void RestartScene()
+    public void RestartScene()
     {
         // Play Sound
         LevelManager.Get().ResetCurrentScene();

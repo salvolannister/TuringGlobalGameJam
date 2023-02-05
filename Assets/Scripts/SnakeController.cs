@@ -293,7 +293,8 @@ public class SnakeController : MonoBehaviour
 
     private void OnDestroy()
     {
-        levelManager.OnPlayerMove -= MoveSnake;
+        if (levelManager != null)
+            levelManager.OnPlayerMove -= MoveSnake;
     }
 }
 

@@ -16,7 +16,7 @@ public class ObstacleSwitch : MonoBehaviour
     [SerializeField] private bool hasAudio = true;
     public enum State {Active, Near, NotActive};
     public State state;
-
+    private bool IsTriggered = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -92,14 +92,17 @@ public class ObstacleSwitch : MonoBehaviour
         gameObject.layer = defaultLayer;
         spriteRenderer.sprite = noSpike;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         Debug.Log("OnTriggerEnter2D");
-        if(state == State.Active)
+        if(state == State.Active && IsTriggered)
         {
             Debug.Log("Morte");
             FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Spikes_Kill");
             levelManager.GameOver();
+            IsTriggered= false;
         }
     }
 }

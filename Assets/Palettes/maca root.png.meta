@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 830d7388b9b6944dbb15cd2b7d8feb44
+=======
+guid: 9cdefb58f6d3f644798758479b3cc6ac
+>>>>>>> 090089a3ac4d19744e99cbc2c9e364571d40c49f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +37,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: 0
+=======
+    filterMode: 1
+>>>>>>> 090089a3ac4d19744e99cbc2c9e364571d40c49f
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,12 +50,20 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 2
+=======
+  spriteMode: 1
+>>>>>>> 090089a3ac4d19744e99cbc2c9e364571d40c49f
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   spritePixelsToUnits: 16
+=======
+  spritePixelsToUnits: 100
+>>>>>>> 090089a3ac4d19744e99cbc2c9e364571d40c49f
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,6 +85,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< HEAD
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -93,6 +110,8 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+=======
+>>>>>>> 090089a3ac4d19744e99cbc2c9e364571d40c49f
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -102,6 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
+<<<<<<< HEAD
     sprites:
     - serializedVersion: 2
       name: maca root_0
@@ -166,6 +186,9 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+=======
+    sprites: []
+>>>>>>> 090089a3ac4d19744e99cbc2c9e364571d40c49f
     outline: []
     physicsShape: []
     bones: []
@@ -176,10 +199,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<< HEAD
     nameFileIdTable:
       maca root_1: -914744109
       maca root_0: 1102342286
       maca root_2: -866247624
+=======
+    nameFileIdTable: {}
+>>>>>>> 090089a3ac4d19744e99cbc2c9e364571d40c49f
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

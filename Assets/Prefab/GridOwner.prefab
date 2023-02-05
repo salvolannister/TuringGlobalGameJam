@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seeker: {fileID: 0}
   target: {fileID: 0}
+  grid: {fileID: 1134460110358316878}
   GridOwner: {fileID: 1134460110358316865}
 --- !u!1 &6425971800097962947
 GameObject:

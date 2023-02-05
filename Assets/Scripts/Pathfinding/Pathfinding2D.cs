@@ -6,16 +6,11 @@ public class Pathfinding2D : MonoBehaviour
 {
 
     public Transform seeker, target;
-    Grid2D grid;
+    public Grid2D grid;
     Node2D seekerNode, targetNode;
     public GameObject GridOwner;
 
 
-    void Start()
-    {
-        //Instantiate grid
-        grid = GridOwner.GetComponent<Grid2D>();
-    }
 
 
     public void FindPath(Vector2Int gridStartPos, Vector2Int gridFinalPos)

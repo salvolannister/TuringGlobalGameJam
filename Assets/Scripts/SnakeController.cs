@@ -88,7 +88,7 @@ public class SnakeController : MonoBehaviour
         snakeTransformPos = gameObject.transform;
         snakeHeadPos = snakeTransformPos.position;
 
-        snakePath = GetComponent<Pathfinding2D>();
+        snakePath = FindObjectOfType<Pathfinding2D>();
 
 
         pathGrid = snakePath.GridOwner.GetComponent<Grid2D>();

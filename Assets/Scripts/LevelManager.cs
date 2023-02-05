@@ -60,6 +60,13 @@ public class LevelManager : Manager<LevelManager>
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void GameOver()
+    {
+        ResetCurrentSteps();
+        StopSountrack();
+        StartCoroutine(RestartLoad());
+    }
+
     private void ResetCurrentSteps()
     {
         _currentSteps = 0;
@@ -95,6 +102,21 @@ public class LevelManager : Manager<LevelManager>
     {
         instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         instance.release();
+    }
+
+    IEnumerator RestartLoad()
+    {
+        yield return new WaitForSeconds(1);
+        _loadingScreen.gameObject.SetActive(true);
+        yield return StartCoroutine(FadeLoadingScreen(1, 1));
+        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        while(!operation.isDone)
+        {
+            yield return null;
+        }
+        yield return StartCoroutine(FadeLoadingScreen(0, 1));
+        yield return new WaitForSeconds(3);
+        _loadingScreen.gameObject.SetActive(false);
     }
     IEnumerator StartLoad()
     {

@@ -129,7 +129,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -143,7 +143,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!50 &5409982556973361086
 Rigidbody2D:
@@ -185,4 +185,5 @@ MonoBehaviour:
   noSpike: {fileID: 1764989472, guid: 3f0474106c9bb70449e46dace56e7962, type: 3}
   nearSpike: {fileID: -1172519316, guid: 3f0474106c9bb70449e46dace56e7962, type: 3}
   spike: {fileID: -809235060, guid: 3f0474106c9bb70449e46dace56e7962, type: 3}
+  hasAudio: 1
   state: 0

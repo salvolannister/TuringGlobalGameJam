@@ -20,6 +20,6 @@ public class GameManager : Manager<GameManager>
 
     public static void GameOver()
     {
-        LevelManager.Get().ResetCurrentScene();
+        LevelManager.Get().GameOver();
     }
 }

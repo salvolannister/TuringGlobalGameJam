@@ -142,7 +142,7 @@ public class SnakeController : MonoBehaviour
         snakeTransformPos.position = snakeHeadPos;
         SetTileBasedOnMovementDirection(currentSnakePos);
         //snakeTileMap.SetTile(currentSnakePos, headTile);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Footsteps");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Snake/Crawl");
         Debug.Log($"New position is {newSnakeHeadPos}, old pos is {currentSnakePos}");
 
     }

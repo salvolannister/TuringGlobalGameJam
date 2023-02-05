@@ -4,6 +4,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private SnakeController snakeController;
     LevelManager levelManager;
     [SerializeField] private float movementSpeed = 3f;
     [SerializeField] private Transform movePoint;
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if(Vector3.Distance(transform.position, movePoint.position) <= .05f && !blockMovement)
+        if (Vector3.Distance(transform.position, movePoint.position) <= .05f && !blockMovement)
         {
             CheckAndPerformMovement();
         }
@@ -40,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if((transform.position - movePoint.position).magnitude == 0)
+        if ((transform.position - movePoint.position).magnitude == 0)
         {
             if (isMoving)
             {
@@ -56,24 +57,36 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public void PerformMovement(Vector2 movement, bool lastMovement=false)
+    public void PerformMovement(Vector2 movement, bool lastMovement = false)
     {
         lastMove = movement;
         Debug.Log("last move " + lastMove);
         movePoint.position = (Vector2)movePoint.position + movement;
         PlayerAnimation(movement);
         FMODUnity.RuntimeManager.PlayOneShot("event:/" + _eventName);
-        if (!lastMovement) {
+        if (!lastMovement)
+        {
             isMoving = true;
         }
-            
+
         prevTime = Time.time;
     }
 
 
     public bool CheckMovementPossible(Vector2 movement)
     {
-        if(Physics2D.OverlapCircle((Vector2)movePoint.position + movement, .1f, nonWalkableTiles))
+        snakeController = FindObjectOfType<SnakeController>();
+
+        if (snakeController)
+        {
+            var x = snakeController.snakeTileMap.WorldToCell((Vector2)movePoint.position + movement);
+            var t = snakeController.snakeTileMap.GetTile(x);
+
+            if (t != null)
+                return false;
+        }
+
+        if (Physics2D.OverlapCircle((Vector2)movePoint.position + movement, .1f, nonWalkableTiles))
             return false;
         return true;
 
@@ -81,14 +94,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void CheckAndPerformMovement()
     {
-        if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
         {
-            if(CheckMovementPossible(new Vector2(Input.GetAxisRaw("Horizontal"), 0)))
+            if (CheckMovementPossible(new Vector2(Input.GetAxisRaw("Horizontal"), 0)))
                 PerformMovement(new Vector2(Input.GetAxis("Horizontal"), 0));
         }
-        else if(Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
+        else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
         {
-            if(CheckMovementPossible(new Vector2(0, Input.GetAxisRaw("Vertical"))))
+            if (CheckMovementPossible(new Vector2(0, Input.GetAxisRaw("Vertical"))))
                 PerformMovement(new Vector2(0, Input.GetAxis("Vertical")));
         }
     }

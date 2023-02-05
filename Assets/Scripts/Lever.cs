@@ -32,14 +32,28 @@ public class Lever : MonoBehaviour
                     opens[i] = false;
                     gates[i].layer = wallLayer;
                     gates[i].GetComponentInChildren<SpriteRenderer>().color = Color.yellow;
+                    StartCoroutine(ExampleCoroutine());
                 }
                 else
                 {
                     opens[i] = true;
                     gates[i].layer = defaultLayer;
                     gates[i].GetComponentInChildren<SpriteRenderer>().color = Color.white;
+                    StartCoroutine(ExampleCoroutine());
                 }
             }
         }
+    }
+
+    IEnumerator ExampleCoroutine()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Lever");
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(0.5f);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Gate_Slide");
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 }

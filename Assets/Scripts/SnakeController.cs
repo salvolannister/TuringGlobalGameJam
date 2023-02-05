@@ -46,7 +46,7 @@ public class SnakeController : MonoBehaviour
     public int delayTime;
     public int playerStepsTrigger;
     public Transform targetTrs;
-    public LayerMask playerLayer;
+    public LayerMask stoppingLayers;
 
     private LevelManager levelManager;
     private Transform snakeTransformPos;
@@ -123,8 +123,22 @@ public class SnakeController : MonoBehaviour
         {
 
             newSnakeHeadPos = pathGrid.path[nSteps].worldPosition;
-            playerFound = CheckForPlayer(newSnakeHeadPos);
-            if (!playerFound)
+            Collider2D colliderFound = CheckForObstacle(newSnakeHeadPos);
+            playerFound = false;
+            if (colliderFound != null)
+            {
+                playerFound = IsPlayer(colliderFound);
+                
+                if (!playerFound)
+                {
+                    // A wall was hit
+                    return;
+                   
+                }
+
+
+            }
+            else
             {
                 Invoke(nameof(MoveSnake), 1);
             }
@@ -242,7 +256,8 @@ public class SnakeController : MonoBehaviour
                     bodyTile = horizontalBodyTile;
                 }
             }
-        }else if(headDir == Vector3Int.up)
+        }
+        else if (headDir == Vector3Int.up)
         {
             headTile = upHeadTile;
             tongueTile = upTongueTile;
@@ -288,12 +303,18 @@ public class SnakeController : MonoBehaviour
     {
         return newPose < oldPose;
     }
-    private bool CheckForPlayer(Vector3 worldPosition)
+    private Collider2D CheckForObstacle(Vector3 worldPosition)
     {
-        var collider = Physics2D.OverlapCircle(worldPosition, 0.1f, playerLayer);
+        var collider = Physics2D.OverlapCircle(worldPosition, 0.1f, stoppingLayers);
 
-        return collider && collider.CompareTag("Player");
+        return collider;
     }
+
+    private bool IsPlayer(Collider2D collider)
+    {
+        return collider.CompareTag("Player");
+    }
+
 
 }
 

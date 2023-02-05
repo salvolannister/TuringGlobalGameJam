@@ -126,9 +126,9 @@ MonoBehaviour:
   delayTime: 0
   playerStepsTrigger: 0
   targetTrs: {fileID: 0}
-  playerLayer:
+  stoppingLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 65
   AskForStart: 1
   startPos: {x: 2, y: 5}
   targetPos: {x: 2, y: 1}

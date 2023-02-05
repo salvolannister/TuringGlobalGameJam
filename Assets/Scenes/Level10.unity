@@ -1004,6 +1004,72 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1001 &903311919
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4860815541414030825, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860815541414030825, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860815541414030825, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860815541414030825, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08474564
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860815541414030825, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860815541414030825, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860815541414030825, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860815541414030825, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860815541414030825, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860815541414030825, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860815541414030825, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860815541414030830, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: m_Name
+      value: Oil (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860815541827809629, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720686674953807346, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1146694432}
+    m_RemovedComponents:
+    - {fileID: 300395972371053866, guid: e95f2512204531b48adc795cd14bd359, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: e95f2512204531b48adc795cd14bd359, type: 3}
 --- !u!1001 &1146694431
 PrefabInstance:
   m_ObjectHideFlags: 0

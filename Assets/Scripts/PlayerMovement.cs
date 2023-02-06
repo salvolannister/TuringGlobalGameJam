@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 levelManager.UpdateStepsEvenet();
                 isMoving = false;
+                blockMovement = false;
             }
             playerAnimator.SetBool("Up", false);
             playerAnimator.SetBool("Down", false);
@@ -68,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isMoving = true;
         }
-
+        blockMovement=true;
         prevTime = Time.time;
     }
 

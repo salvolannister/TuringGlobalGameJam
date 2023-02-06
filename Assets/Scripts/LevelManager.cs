@@ -4,14 +4,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class LevelManager : Manager<LevelManager>
 {
-    [SerializeField][Tooltip("Loading page")] private Canvas _loadingScreen;
-    [SerializeField][Tooltip("nome della traccia da inserire")] private String _eventName;
+    [SerializeField] [Tooltip("Loading page")] private Canvas _loadingScreen;
+    [SerializeField] [Tooltip("nome della traccia da inserire")] private String _eventName;
 
-    private long _currentSteps;       
+    private long _currentSteps;
     private FMOD.Studio.EventInstance instance;
     GameManager gameManager;
 
@@ -22,10 +23,16 @@ public class LevelManager : Manager<LevelManager>
     {
         gameManager = GameManager.Get();
         _currentSteps = 0;
-        
+
         //qui parte la sountrack del gioco
         //sostituire con una traccia più lunga
         StartSountrack(_eventName);
+
+#if UNITY_STANDALONE == false
+        var cam = GetComponent<PixelPerfectCamera>();
+        if (cam != null)
+            cam.enabled = false;
+#endif
     }
 
     // Update is called once per frame
@@ -33,13 +40,10 @@ public class LevelManager : Manager<LevelManager>
     {
         if (Input.GetButtonDown("Reset"))
             ResetCurrentScene();
-        //Solo per test, Da rimuore in build
-        if(Input.GetKeyDown(KeyCode.E))
-            LoadNextScene();
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
             ResetCurrentScene();
     }
-    
+
     //azzera numero di passi
     //carica scena successiva
     public void LoadNextScene()
@@ -89,13 +93,13 @@ public class LevelManager : Manager<LevelManager>
 
     private void StartSountrack(String eventName)
     {
-        if(string.IsNullOrEmpty(eventName))
+        if (string.IsNullOrEmpty(eventName))
         {
             Debug.LogWarning("Set event name in the editor", this);
             return;
         }
-       
-        instance = FMODUnity.RuntimeManager.CreateInstance("event:/"+eventName);
+
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/" + eventName);
         instance.start();
     }
 
@@ -111,7 +115,7 @@ public class LevelManager : Manager<LevelManager>
         _loadingScreen.gameObject.SetActive(true);
         yield return StartCoroutine(FadeLoadingScreen(1, 1));
         AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-        while(!operation.isDone)
+        while (!operation.isDone)
         {
             yield return null;
         }
@@ -124,7 +128,7 @@ public class LevelManager : Manager<LevelManager>
         _loadingScreen.gameObject.SetActive(true);
         yield return StartCoroutine(FadeLoadingScreen(1, 1));
         AsyncOperation operation = SceneManager.LoadSceneAsync("Level" + gameManager._currentSceneIndex);
-        while(!operation.isDone)
+        while (!operation.isDone)
         {
             yield return null;
         }
@@ -137,7 +141,7 @@ public class LevelManager : Manager<LevelManager>
         float startValue = _loadingScreen.GetComponentInChildren<Image>().color.a;
         float time = 0;
         var tempColor = _loadingScreen.GetComponentInChildren<Image>().color;
-        while(time < duration)
+        while (time < duration)
         {
             tempColor.a = Mathf.Lerp(startValue, targetValue, time / duration);
             time += Time.deltaTime;

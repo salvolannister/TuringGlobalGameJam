@@ -130,6 +130,8 @@ MonoBehaviour:
   movePoint: {fileID: 6813367472575103706}
   _eventName: Footsteps
   playerAnimator: {fileID: 7652189028336479644}
+  detectSwipeAfterRelease: 0
+  SWIPE_THRESHOLD: 20
   nonWalkableTiles:
     serializedVersion: 2
     m_Bits: 64
@@ -207,7 +209,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 99
+  m_SortingOrder: 98
   m_Sprite: {fileID: 1224395379, guid: 135f62caba3d344978e6e99753cc0282, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

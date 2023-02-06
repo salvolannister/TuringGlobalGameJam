@@ -92,12 +92,12 @@ public class ObstacleSwitch : MonoBehaviour
         gameObject.layer = defaultLayer;
         spriteRenderer.sprite = noSpike;
     }
-
+   
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         Debug.Log("OnTriggerEnter2D");
-        if(state == State.Active && IsTriggered)
+        if(state == State.Active && IsTriggered && collision.CompareTag("Player"))
         {
             Debug.Log("Morte");
             FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Spikes_Kill");

@@ -493,7 +493,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 6.65
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -522,7 +522,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -1514,11 +1514,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8985858476267126100, guid: 7ea68ae0c69a34e4d9f2a12d29af33a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ea68ae0c69a34e4d9f2a12d29af33a8, type: 3}
 --- !u!223 &1108376978 stripped
 Canvas:
-  m_CorrespondingSourceObject: {fileID: 5135068686585960002, guid: 7ea68ae0c69a34e4d9f2a12d29af33a8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8985858476267126097, guid: 7ea68ae0c69a34e4d9f2a12d29af33a8, type: 3}
   m_PrefabInstance: {fileID: 1108376977}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1146694431
@@ -9234,7 +9238,7 @@ Transform:
   - {fileID: 1507514051}
   - {fileID: 791781925}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2075937323
 PrefabInstance:

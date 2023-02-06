@@ -340,7 +340,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 4.97
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -369,7 +369,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68729fd2417ac041ba5909c1a955706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loadingScreen: {fileID: 798075060}
+  _loadingScreen: {fileID: 5135068687348383479}
   _eventName: Ambience
 --- !u!114 &519420034
 MonoBehaviour:
@@ -4248,11 +4248,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!223 &798075060 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 5135068686585960002, guid: 7ea68ae0c69a34e4d9f2a12d29af33a8, type: 3}
-  m_PrefabInstance: {fileID: 5135068687348383478}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1146694431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4831,7 +4826,7 @@ Transform:
   - {fileID: 1507514051}
   - {fileID: 791781925}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5135068687348383478
 PrefabInstance:
@@ -4936,5 +4931,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8985858476267126100, guid: 7ea68ae0c69a34e4d9f2a12d29af33a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ea68ae0c69a34e4d9f2a12d29af33a8, type: 3}
+--- !u!223 &5135068687348383479 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 8985858476267126097, guid: 7ea68ae0c69a34e4d9f2a12d29af33a8, type: 3}
+  m_PrefabInstance: {fileID: 5135068687348383478}
+  m_PrefabAsset: {fileID: 0}

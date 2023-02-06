@@ -13,6 +13,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lastMove;
     private bool isMoving = false;
 
+    private Vector2 fingerDownPos;
+    private Vector2 fingerUpPos;
+
+    public bool detectSwipeAfterRelease = false;
+
+    public float SWIPE_THRESHOLD = 20f;
+
+
 
     [SerializeField] private LayerMask nonWalkableTiles;
 
@@ -33,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if (Vector3.Distance(transform.position, movePoint.position) <= .05f && !blockMovement)
+        if (Vector3.Distance(transform.position, movePoint.position) <= .05f && !blockMovement && Time.time - prevTime >= .5f)
         {
             CheckAndPerformMovement();
         }
@@ -54,11 +62,16 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetBool("Right", false);
         }
 
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            OnSwipeUp();
+        }
     }
 
 
     public void PerformMovement(Vector2 movement, bool lastMovement = false)
     {
+        prevTime = Time.time;
         lastMove = movement;
         Debug.Log("last move " + lastMove);
         movePoint.position = (Vector2)movePoint.position + movement;
@@ -94,6 +107,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void CheckAndPerformMovement()
     {
+
+        RunSwipeDetection();
+
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
         {
             if (CheckMovementPossible(new Vector2(Input.GetAxisRaw("Horizontal"), 0)))
@@ -144,6 +160,122 @@ public class PlayerMovement : MonoBehaviour
         {
             playerAnimator.SetBool("Right", true);
             Debug.Log("Walk Right");
+        }
+    }
+
+    private void RunSwipeDetection()
+    {
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Began)
+            {
+                fingerUpPos = touch.position;
+                fingerDownPos = touch.position;
+            }
+
+            //Detects Swipe while finger is still moving on screen
+            if (touch.phase == TouchPhase.Moved)
+            {
+                if (!detectSwipeAfterRelease)
+                {
+                    fingerDownPos = touch.position;
+                    DetectSwipe();
+                }
+            }
+
+            //Detects swipe after finger is released from screen
+            if (touch.phase == TouchPhase.Ended)
+            {
+                fingerDownPos = touch.position;
+                DetectSwipe();
+            }
+        }
+    }
+
+    void DetectSwipe()
+    {
+
+        if (VerticalMoveValue() > SWIPE_THRESHOLD && VerticalMoveValue() > HorizontalMoveValue())
+        {
+            Debug.Log("Vertical Swipe Detected!");
+            if (fingerDownPos.y - fingerUpPos.y > 0)
+            {
+                OnSwipeUp();
+            }
+            else if (fingerDownPos.y - fingerUpPos.y < 0)
+            {
+                OnSwipeDown();
+            }
+            fingerUpPos = fingerDownPos;
+
+        }
+        else if (HorizontalMoveValue() > SWIPE_THRESHOLD && HorizontalMoveValue() > VerticalMoveValue())
+        {
+            Debug.Log("Horizontal Swipe Detected!");
+            if (fingerDownPos.x - fingerUpPos.x > 0)
+            {
+                OnSwipeRight();
+            }
+            else if (fingerDownPos.x - fingerUpPos.x < 0)
+            {
+                OnSwipeLeft();
+            }
+            fingerUpPos = fingerDownPos;
+
+        }
+        else
+        {
+            Debug.Log("No Swipe Detected!");
+        }
+    }
+
+    float VerticalMoveValue()
+    {
+        return Mathf.Abs(fingerDownPos.y - fingerUpPos.y);
+    }
+
+    float HorizontalMoveValue()
+    {
+        return Mathf.Abs(fingerDownPos.x - fingerUpPos.x);
+    }
+
+    void OnSwipeUp()
+    {
+        Vector2 move = new Vector2(0, 1);
+
+        if (CheckMovementPossible(move))
+        {
+            PerformMovement(move);
+        }
+    }
+
+    void OnSwipeDown()
+    {
+        Vector2 move = new Vector2(0, -1);
+
+        if (CheckMovementPossible(move))
+        {
+            PerformMovement(move);
+        }
+    }
+
+    void OnSwipeLeft()
+    {
+        Vector2 move = new Vector2(-1, 0);
+
+        if (CheckMovementPossible(move))
+        {
+            PerformMovement(move);
+        }
+    }
+
+    void OnSwipeRight()
+    {
+        Vector2 move = new Vector2(1, 0);
+
+        if (CheckMovementPossible(move))
+        {
+            PerformMovement(move);
         }
     }
 }

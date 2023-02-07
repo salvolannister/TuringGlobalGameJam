@@ -133,6 +133,7 @@ public class SnakeController : MonoBehaviour
         snakeHeadPos = newSnakeHeadPos;
         if (playerFound)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Snake/Kill");
             GameManager.GameOver();
         }
 

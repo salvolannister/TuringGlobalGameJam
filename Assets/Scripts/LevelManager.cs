@@ -38,8 +38,6 @@ public class LevelManager : Manager<LevelManager>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Reset"))
-            ResetCurrentScene();
         if (Input.GetKeyDown(KeyCode.R))
             ResetCurrentScene();
     }
@@ -51,6 +49,7 @@ public class LevelManager : Manager<LevelManager>
         ResetCurrentSteps();
         StopSountrack();
         gameManager._currentSceneIndex++;
+        Debug.LogFormat("LoadNextScene - scene index: " + gameManager._currentSceneIndex);
         StartCoroutine(StartLoad());
         OnLevelFinished?.Invoke();
     }
@@ -60,6 +59,8 @@ public class LevelManager : Manager<LevelManager>
     public void ResetCurrentScene()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Ui_Restart");
+        gameManager.IncreaseDeathCounter();
+        Debug.LogFormat("ResetCurrentScene: " + gameManager._currentPlayerDeath);
         ResetCurrentSteps();
         StopSountrack();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -67,9 +68,11 @@ public class LevelManager : Manager<LevelManager>
 
     public void GameOver()
     {
+        gameManager.IncreaseDeathCounter();
+        Debug.LogFormat("GameOver: " + gameManager._currentPlayerDeath);
         ResetCurrentSteps();
         StopSountrack();
-        StartCoroutine(RestartLoad());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void ResetCurrentSteps()

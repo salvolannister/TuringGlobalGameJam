@@ -2,6 +2,12 @@
 
 Embark on a thrilling puzzle adventure in **Escape Amaru**, a game where every step counts! Explore the depths of an ancient Inca temple dedicated to Amaru, the mythical serpent ruling the underworld. As your soul wanders through the underground, the Serpent God Amaru seeks to ensnare you. Maintain your cool, count every step, and navigate the perilous journey. Reach the final floor, devour the sacred Maca root awaiting you, and witness your soul's salvation. Uncover the myriad elements of roots – the Maca root, the subterranean temple, death, rebirth, and our earthly ties.
 
+### Screenshots/Gallery
+
+![Screenshot 1](Images/escape_amaru_1_small.jpg)
+
+
+
 ## Why Choose Escape Amaru?
 
 This 2D puzzle masterpiece emerged during the "Turin Global Game Jam 2023" – a gathering of game devs crafting games in an intense three-day sprint. The 2023 theme, "Roots," inspired a captivating journey, enriched with optional modifiers like Latin ancestral history.
@@ -46,3 +52,11 @@ Here some of the tutorial used to build the game:
 - **Artist:** [Pinna Elena](https://www.linkedin.com/in/elena-pinna-657638155/)
 
 Dive into the brilliance and creativity that shapes Escape Amaru! 🎮✨
+
+
+Certainly! To add images to your `readme.md` file on GitHub, you can use the following Markdown syntax. Assuming you have images in your repository or hosted online, replace the placeholder URLs with the actual paths or URLs of your images.
+
+
+### Team Members/Images
+
+![Group Image](Images/EscapeAmaruGroup_small.jpg)

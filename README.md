@@ -53,10 +53,6 @@ Here some of the tutorial used to build the game:
 
 Dive into the brilliance and creativity that shapes Escape Amaru! 🎮✨
 
-
-Certainly! To add images to your `readme.md` file on GitHub, you can use the following Markdown syntax. Assuming you have images in your repository or hosted online, replace the placeholder URLs with the actual paths or URLs of your images.
-
-
 ### Team Members/Images
 
 ![Group Image](Images/EscapeAmaruGroup_small.jpg)

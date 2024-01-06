@@ -46,7 +46,7 @@ Here some of the tutorial used to build the game:
 
 ### Meet the Team 🌟
 
-- **Game Designers:** [Ahmed Omar](https://www.linkedin.com/in/ahmed-omar-8661a9193/), ** [Federico Gallucci](https://www.linkedin.com/in/federico-gallucci-safriaduo/)   
+- **Game Designers:** [Ahmed Omar](https://www.linkedin.com/in/ahmed-omar-8661a9193/), [Federico Gallucci](https://www.linkedin.com/in/federico-gallucci-safriaduo/)   
 - **Programmers:** [Salvatore Gurzì (aka Salvolannister)](https://www.linkedin.com/in/salvatoregurzi/), [Simone Marca](https://www.linkedin.com/in/simone-marca-184a59100/), [Matteo Notarangelo](https://www.linkedin.com/in/mattnot/)
 - **Audio Designer:** [Lorenzo Lingua](https://www.linkedin.com/in/lorenzo-lingua-68562b231/)
 - **Artist:** [Pinna Elena](https://www.linkedin.com/in/elena-pinna-657638155/)

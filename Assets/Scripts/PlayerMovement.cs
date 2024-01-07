@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isMoving)
             {
-                levelManager.UpdateStepsEvenet();
+                levelManager.UpdateStepsEvent();
                 isMoving = false;
             }
             playerAnimator.SetBool("Up", false);

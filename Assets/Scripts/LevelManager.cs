@@ -10,52 +10,51 @@ using UnityEngine.UI;
 public class LevelManager : Manager<LevelManager>
 {
     [SerializeField] [Tooltip("Loading page")] private Canvas _loadingScreen;
-    [SerializeField] [Tooltip("nome della traccia da inserire")] private String _eventName;
+    [SerializeField] [Tooltip("SoundTrack Name")] private String _eventName;
 
     private long _currentSteps;
-    private FMOD.Studio.EventInstance instance;
+    private FMOD.Studio.EventInstance fmodStudioInstance;
     GameManager gameManager;
 
     public Action OnPlayerMove;
     public Action OnLevelFinished;
-    // Start is called before the first frame update
+
     void Start()
     {
         gameManager = GameManager.Get();
         _currentSteps = 0;
 
-        //qui parte la sountrack del gioco
-        //sostituire con una traccia più lunga
+        //Start game soundtrack
+        //TODO: add longer soundtrack
         StartSountrack(_eventName);
 
-#if UNITY_STANDALONE == false
+#if !UNITY_STANDALONE
         var cam = GetComponent<PixelPerfectCamera>();
         if (cam != null)
             cam.enabled = false;
 #endif
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
             ResetCurrentScene();
     }
 
-    //azzera numero di passi
-    //carica scena successiva
+    /* Set the game environment to load the next scene: 
+     * reset steps count, stop soundtrack music, and increase level index
+     */
     public void LoadNextScene()
     {
         ResetCurrentSteps();
         StopSountrack();
         gameManager._currentSceneIndex++;
         Debug.LogFormat("LoadNextScene - scene index: " + gameManager._currentSceneIndex);
-        StartCoroutine(StartLoad());
+        StartCoroutine(StartLoadCoroutine());
         OnLevelFinished?.Invoke();
     }
 
-    //azzera numero di passi
-    //ricarica la scena corrente
+    /* Reload Current Scene */
     public void ResetCurrentScene()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Ui_Restart");
@@ -63,7 +62,7 @@ public class LevelManager : Manager<LevelManager>
         Debug.LogFormat("ResetCurrentScene: " + gameManager._currentPlayerDeath);
         ResetCurrentSteps();
         StopSountrack();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(RestartLoadCoroutine());
     }
 
     public void GameOver()
@@ -72,7 +71,7 @@ public class LevelManager : Manager<LevelManager>
         Debug.LogFormat("GameOver: " + gameManager._currentPlayerDeath);
         ResetCurrentSteps();
         StopSountrack();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(RestartLoadCoroutine());
     }
 
     private void ResetCurrentSteps()
@@ -80,15 +79,13 @@ public class LevelManager : Manager<LevelManager>
         _currentSteps = 0;
     }
 
-    public void UpdateStepsEvenet()
+    public void UpdateStepsEvent()
     {
         _currentSteps++;
-        //Output message to the console
-        Debug.Log("passi aumentati");
+        Debug.Log("Steps Increased");
         OnPlayerMove?.Invoke();
     }
 
-    //fornisce il numero corrente di passi
     public long RetrieveCurrentSteps()
     {
         return _currentSteps;
@@ -102,44 +99,44 @@ public class LevelManager : Manager<LevelManager>
             return;
         }
 
-        instance = FMODUnity.RuntimeManager.CreateInstance("event:/" + eventName);
-        instance.start();
+        fmodStudioInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + eventName);
+        fmodStudioInstance.start();
     }
 
     private void StopSountrack()
     {
-        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        instance.release();
+        fmodStudioInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        fmodStudioInstance.release();
     }
 
-    IEnumerator RestartLoad()
+    IEnumerator RestartLoadCoroutine()
     {
         yield return new WaitForSeconds(1);
         _loadingScreen.gameObject.SetActive(true);
-        yield return StartCoroutine(FadeLoadingScreen(1, 1));
+        yield return StartCoroutine(FadeLoadingScreenCoroutine(1, 1));
         AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
         while (!operation.isDone)
         {
             yield return null;
         }
-        yield return StartCoroutine(FadeLoadingScreen(0, 1));
+        yield return StartCoroutine(FadeLoadingScreenCoroutine(0, 1));
         yield return new WaitForSeconds(3);
         _loadingScreen.gameObject.SetActive(false);
     }
-    IEnumerator StartLoad()
+    IEnumerator StartLoadCoroutine()
     {
         _loadingScreen.gameObject.SetActive(true);
-        yield return StartCoroutine(FadeLoadingScreen(1, 1));
+        yield return StartCoroutine(FadeLoadingScreenCoroutine(1, 1));
         AsyncOperation operation = SceneManager.LoadSceneAsync("Level" + gameManager._currentSceneIndex);
         while (!operation.isDone)
         {
             yield return null;
         }
-        yield return StartCoroutine(FadeLoadingScreen(0, 1));
+        yield return StartCoroutine(FadeLoadingScreenCoroutine(0, 1));
         yield return new WaitForSeconds(3);
         _loadingScreen.gameObject.SetActive(false);
     }
-    IEnumerator FadeLoadingScreen(float targetValue, float duration)
+    IEnumerator FadeLoadingScreenCoroutine(float targetValue, float duration)
     {
         float startValue = _loadingScreen.GetComponentInChildren<Image>().color.a;
         float time = 0;

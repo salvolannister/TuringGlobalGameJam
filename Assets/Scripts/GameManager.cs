@@ -49,6 +49,12 @@ public class GameManager : Manager<GameManager>
             {
                  _playerMovement = PlayerGameObject.GetComponent<PlayerMovement>();
             }
+           
+            if(_playerMovement == null)
+            {
+                Debug.LogError("Couldn't find player movement");
+            }
+            
         }
 
         return _playerMovement;

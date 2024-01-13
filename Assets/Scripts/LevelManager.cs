@@ -13,15 +13,15 @@ public class LevelManager : Manager<LevelManager>
     [SerializeField] [Tooltip("SoundTrack Name")] private String _eventName;
 
     private long _currentSteps;
-    private FMOD.Studio.EventInstance fmodStudioInstance;
-    GameManager gameManager;
+    private FMOD.Studio.EventInstance _fmodStudioInstance;
+    private GameManager _gameManager;
 
     public Action OnPlayerMove;
     public Action OnLevelFinished;
 
     void Start()
     {
-        gameManager = GameManager.Get();
+        _gameManager = GameManager.Get();
         _currentSteps = 0;
 
         //Start game soundtrack
@@ -48,8 +48,8 @@ public class LevelManager : Manager<LevelManager>
     {
         ResetCurrentSteps();
         StopSountrack();
-        gameManager._currentSceneIndex++;
-        Debug.LogFormat("LoadNextScene - scene index: " + gameManager._currentSceneIndex);
+        _gameManager._currentSceneIndex++;
+        Debug.LogFormat("LoadNextScene - scene index: " + _gameManager._currentSceneIndex);
         StartCoroutine(StartLoadCoroutine());
         OnLevelFinished?.Invoke();
     }
@@ -58,8 +58,8 @@ public class LevelManager : Manager<LevelManager>
     public void ResetCurrentScene()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Ui_Restart");
-        gameManager.IncreaseDeathCounter();
-        Debug.LogFormat("ResetCurrentScene: " + gameManager._currentPlayerDeath);
+        _gameManager.IncreaseDeathCounter();
+        Debug.LogFormat("ResetCurrentScene: " + _gameManager._currentPlayerDeath);
         ResetCurrentSteps();
         StopSountrack();
         StartCoroutine(RestartLoadCoroutine());
@@ -67,8 +67,8 @@ public class LevelManager : Manager<LevelManager>
 
     public void GameOver()
     {
-        gameManager.IncreaseDeathCounter();
-        Debug.LogFormat("GameOver: " + gameManager._currentPlayerDeath);
+        _gameManager.IncreaseDeathCounter();
+        Debug.LogFormat("GameOver: " + _gameManager._currentPlayerDeath);
         ResetCurrentSteps();
         StopSountrack();
         StartCoroutine(RestartLoadCoroutine());
@@ -99,14 +99,14 @@ public class LevelManager : Manager<LevelManager>
             return;
         }
 
-        fmodStudioInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + eventName);
-        fmodStudioInstance.start();
+        _fmodStudioInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + eventName);
+        _fmodStudioInstance.start();
     }
 
     private void StopSountrack()
     {
-        fmodStudioInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        fmodStudioInstance.release();
+        _fmodStudioInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        _fmodStudioInstance.release();
     }
 
     IEnumerator RestartLoadCoroutine()
@@ -127,7 +127,7 @@ public class LevelManager : Manager<LevelManager>
     {
         _loadingScreen.gameObject.SetActive(true);
         yield return StartCoroutine(FadeLoadingScreenCoroutine(1, 1));
-        AsyncOperation operation = SceneManager.LoadSceneAsync("Level" + gameManager._currentSceneIndex);
+        AsyncOperation operation = SceneManager.LoadSceneAsync("Level" + _gameManager._currentSceneIndex);
         while (!operation.isDone)
         {
             yield return null;

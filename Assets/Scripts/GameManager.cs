@@ -52,7 +52,7 @@ public class GameManager : Manager<GameManager>
            
             if(_playerMovement == null)
             {
-                Debug.LogError("Couldn't find player movement");
+                Debug.LogWarning("Couldn't find player movement");
             }
             
         }

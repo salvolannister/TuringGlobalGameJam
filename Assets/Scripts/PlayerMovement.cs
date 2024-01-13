@@ -5,7 +5,6 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
     private SnakeController snakeController;
-    LevelManager levelManager;
     [SerializeField] private float movementSpeed = 3f;
     [SerializeField] private Transform movePoint;
     [SerializeField] [Tooltip("nome della traccia da inserire")] private String _eventName;
@@ -33,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        levelManager = LevelManager.Get();
         movePoint.parent = null;
         lastMove = Vector2.zero;
     }
@@ -54,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isMoving)
             {
-                levelManager.UpdateStepsEvent();
                 OnPlayerMove?.Invoke();
                 isMoving = false;
             }

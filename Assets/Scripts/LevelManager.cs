@@ -35,6 +35,9 @@ public class LevelManager : Manager<LevelManager>
         if (cam != null)
             cam.enabled = false;
 #endif
+
+       PlayerMovement playerMovement = _gameManager.GetPlayerMovement();
+       playerMovement.OnPlayerMove += UpdateSteps;
     }
 
     #endregion
@@ -76,11 +79,10 @@ public class LevelManager : Manager<LevelManager>
         _currentSteps = 0;
     }
 
-    public void UpdateStepsEvent()
+    public void UpdateSteps()
     {
         _currentSteps++;
         Debug.Log("Steps Increased");
-        OnPlayerMove?.Invoke();
     }
 
     public long RetrieveCurrentSteps()

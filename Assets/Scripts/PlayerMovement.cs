@@ -26,14 +26,18 @@ public class PlayerMovement : MonoBehaviour
     public bool blockMovement = false;
     private Vector2 prevDir;
     private float prevTime;
-
+    private int _currentPlayerSteps;
+    public int CurrentPlayerSteps
+    {
+        get { return _currentPlayerSteps; }
+    }
     public Action OnPlayerMove;
-    // Start is called before the first frame update
-
+  
     void Start()
     {
         movePoint.parent = null;
         lastMove = Vector2.zero;
+        _currentPlayerSteps = 0;
     }
 
     // Update is called once per frame
@@ -52,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isMoving)
             {
+                _currentPlayerSteps++;
                 OnPlayerMove?.Invoke();
                 isMoving = false;
             }

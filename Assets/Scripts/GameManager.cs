@@ -8,8 +8,9 @@ public class GameManager : Manager<GameManager>
 {
     public int _currentSceneIndex = 0;
     public int _currentPlayerDeath;
-
+    
     private PlayerMovement _playerMovement;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -58,5 +59,16 @@ public class GameManager : Manager<GameManager>
         }
 
         return _playerMovement;
+    }
+    /** Return -1 to signal something is not working */
+    public int GetCurrentPlayerSteps()
+    {
+        PlayerMovement playerMovement = GetPlayerMovement();
+        if (playerMovement != null)
+        {
+           return playerMovement.CurrentPlayerSteps;
+        }
+
+        return -1;
     }
 }

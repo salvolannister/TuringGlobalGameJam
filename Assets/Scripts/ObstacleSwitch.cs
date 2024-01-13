@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObstacleSwitch : MonoBehaviour
 {
-    LevelManager levelManager;
+    private GameManager _gameManager;
     SpriteRenderer spriteRenderer;
     [SerializeField] private int Offset = 1;
     [SerializeField] private int EveryNOfTurn=2;
@@ -20,7 +20,7 @@ public class ObstacleSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelManager = LevelManager.Get();
+        _gameManager = GameManager.Get();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         if (Offset == 0)
         {
@@ -41,31 +41,21 @@ public class ObstacleSwitch : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {/*
-        if (levelManager.RetrieveCurrentSteps() == 0 && state==State.Active)
-        {
-            ActivateObstacle();
-            Debug.Log("Activate1");
-            state = State.NotActive;
-        }
-        else if(levelManager.RetrieveCurrentSteps() == 0 && state == State.NotActive)
-        {
-            Debug.Log("Deactivate1");
-            DeactivateObstacle();
-            state = State.NotActive;
-        }*/
-        if (levelManager.RetrieveCurrentSteps() != 0 && (levelManager.RetrieveCurrentSteps() + Offset) % (EveryNOfTurn) == 0 && state==State.Near)
+    {
+        int currentPlayerSteps = _gameManager.GetCurrentPlayerSteps();  
+
+        if (currentPlayerSteps != 0 && (currentPlayerSteps + Offset) % (EveryNOfTurn) == 0 && state==State.Near)
         {
             Debug.Log("Activate2");
             ActivateObstacle();
             state = State.Active;
         }
-        else if (levelManager.RetrieveCurrentSteps() != 0 && ((levelManager.RetrieveCurrentSteps() + Offset) + 1) % (EveryNOfTurn ) == 0 && state==State.NotActive) {
+        else if (currentPlayerSteps != 0 && ((currentPlayerSteps + Offset) + 1) % (EveryNOfTurn ) == 0 && state==State.NotActive) {
             Debug.Log("Near");
             NearActivateObstacle();
             state = State.Near;
         }
-        else if ((levelManager.RetrieveCurrentSteps() + Offset)% (EveryNOfTurn ) != 0 && state == State.Active)
+        else if ((currentPlayerSteps + Offset)% (EveryNOfTurn ) != 0 && state == State.Active)
         {
             Debug.Log("Deactivate2");
             DeactivateObstacle();
@@ -101,7 +91,7 @@ public class ObstacleSwitch : MonoBehaviour
         {
             Debug.Log("Morte");
             FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Spikes_Kill");
-            levelManager.GameOver();
+            GameManager.GameOver();
             IsTriggered= false;
         }
     }

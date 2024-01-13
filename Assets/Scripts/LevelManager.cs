@@ -13,18 +13,15 @@ public class LevelManager : Manager<LevelManager>
     [SerializeField] [Tooltip("Loading page")] private Canvas _loadingScreen;
     [SerializeField] [Tooltip("SoundTrack Name")] private String _eventName;
 
-    private long _currentSteps;
     private FMOD.Studio.EventInstance _fmodStudioInstance;
     private GameManager _gameManager;
 
-    public Action OnPlayerMove;
     public Action OnLevelFinished;
 
     #region UnityMethods
     void Start()
     {
         _gameManager = GameManager.Get();
-        _currentSteps = 0;
 
         //Start game soundtrack
         //TODO: add longer soundtrack
@@ -36,8 +33,6 @@ public class LevelManager : Manager<LevelManager>
             cam.enabled = false;
 #endif
 
-       PlayerMovement playerMovement = _gameManager.GetPlayerMovement();
-       playerMovement.OnPlayerMove += UpdateSteps;
     }
 
     #endregion
@@ -46,7 +41,7 @@ public class LevelManager : Manager<LevelManager>
      */
     public void LoadNextScene()
     {
-        ResetCurrentSteps();
+        
         StopSountrack();
         _gameManager._currentSceneIndex++;
         Debug.LogFormat("LoadNextScene - scene index: " + _gameManager._currentSceneIndex);
@@ -60,7 +55,6 @@ public class LevelManager : Manager<LevelManager>
         FMODUnity.RuntimeManager.PlayOneShot("event:/Objects/Ui_Restart");
         _gameManager.IncreaseDeathCounter();
         Debug.LogFormat("ResetCurrentScene: " + _gameManager._currentPlayerDeath);
-        ResetCurrentSteps();
         StopSountrack();
         StartCoroutine(RestartLoadCoroutine());
     }
@@ -69,25 +63,8 @@ public class LevelManager : Manager<LevelManager>
     {
         _gameManager.IncreaseDeathCounter();
         Debug.LogFormat("GameOver: " + _gameManager._currentPlayerDeath);
-        ResetCurrentSteps();
         StopSountrack();
         StartCoroutine(RestartLoadCoroutine());
-    }
-
-    private void ResetCurrentSteps()
-    {
-        _currentSteps = 0;
-    }
-
-    public void UpdateSteps()
-    {
-        _currentSteps++;
-        Debug.Log("Steps Increased");
-    }
-
-    public long RetrieveCurrentSteps()
-    {
-        return _currentSteps;
     }
 
     private void StartSountrack(String eventName)

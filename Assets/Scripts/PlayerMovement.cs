@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 prevDir;
     private float prevTime;
 
+    public Action OnPlayerMove;
     // Start is called before the first frame update
 
     void Start()
@@ -89,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         prevTime = Time.time;
+        OnPlayerMove?.Invoke();
     }
 
 

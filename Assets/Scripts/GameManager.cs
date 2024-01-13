@@ -8,6 +8,8 @@ public class GameManager : Manager<GameManager>
 {
     public int _currentSceneIndex = 0;
     public int _currentPlayerDeath;
+
+    private PlayerMovement _playerMovement;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,5 +38,19 @@ public class GameManager : Manager<GameManager>
         Debug.Log("IncreaseDeathCounter " + _currentPlayerDeath);
         _currentPlayerDeath++;
         Debug.Log("IncreaseDeathCounter " + _currentPlayerDeath);
+    }
+
+    public PlayerMovement GetPlayerMovement()
+    {
+        if(_playerMovement == null)
+        {
+            GameObject PlayerGameObject = GameObject.FindGameObjectWithTag("Player");
+            if(PlayerGameObject != null )
+            {
+                 _playerMovement = PlayerGameObject.GetComponent<PlayerMovement>();
+            }
+        }
+
+        return _playerMovement;
     }
 }

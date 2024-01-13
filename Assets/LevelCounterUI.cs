@@ -8,26 +8,41 @@ public class LevelCounterUI : MonoBehaviour
 {
     public Text stepCount;
     public Text deathCount;
-    private int step = 0;
-    private GameManager gameManager;
-    private LevelManager levelManager;
+
+    private int _step = 0;
+    private GameManager _gameManager;
+ 
 
     private void Awake()
     {
-        gameManager = GameManager.Get();
+        _gameManager = GameManager.Get();
+    
+        if( _gameManager == null)
+        {
+            Debug.LogError("Can't find GameManager in the scene");
+        }
     }
-    // Start is called before the first frame update
     void Start()
     {            
-        deathCount.text = $"{gameManager._currentPlayerDeath:00}";
-        levelManager = LevelManager.Get();
-        levelManager.OnPlayerMove += UpdateSteps;
+        deathCount.text = $"{_gameManager._currentPlayerDeath:00}";
+        PlayerMovement playerMovement = _gameManager.GetPlayerMovement();
+        playerMovement.OnPlayerMove += UpdateSteps;
     } 
+    private void OnDestroy()
+    {
+        PlayerMovement playerMovement = _gameManager.GetPlayerMovement();
+        if( playerMovement != null )
+        {
+            playerMovement.OnPlayerMove -= UpdateSteps;
+
+        }
+    }
 
     private void UpdateSteps()
     {
-        step++;
-        stepCount.text = $"{step:00}";
-        Debug.Log("UpdateSteps " + step);
+        _step++;
+        stepCount.text = $"{_step:00}";
+        Debug.Log("UpdateSteps " + _step);
     }
+
 }

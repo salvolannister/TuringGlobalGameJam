@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
 using UnityEngine.UI;
 
+// start level soundtrack
 public class LevelManager : Manager<LevelManager>
 {
     [SerializeField] [Tooltip("Loading page")] private Canvas _loadingScreen;
@@ -19,6 +20,7 @@ public class LevelManager : Manager<LevelManager>
     public Action OnPlayerMove;
     public Action OnLevelFinished;
 
+    #region UnityMethods
     void Start()
     {
         _gameManager = GameManager.Get();
@@ -35,12 +37,7 @@ public class LevelManager : Manager<LevelManager>
 #endif
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-            ResetCurrentScene();
-    }
-
+    #endregion
     /* Set the game environment to load the next scene: 
      * reset steps count, stop soundtrack music, and increase level index
      */

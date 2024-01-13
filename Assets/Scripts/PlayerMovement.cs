@@ -66,6 +66,12 @@ public class PlayerMovement : MonoBehaviour
         {
             OnSwipeUp();
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            LevelManager.Get().ResetCurrentScene(); 
+        }
+ 
     }
 
 

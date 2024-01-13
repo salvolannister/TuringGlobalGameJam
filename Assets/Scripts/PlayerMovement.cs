@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
             if (isMoving)
             {
                 levelManager.UpdateStepsEvent();
+                OnPlayerMove?.Invoke();
                 isMoving = false;
             }
             playerAnimator.SetBool("Up", false);
@@ -90,7 +91,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         prevTime = Time.time;
-        OnPlayerMove?.Invoke();
     }
 
 

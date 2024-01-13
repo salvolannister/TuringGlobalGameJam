@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Tilemaps;
 
 public class SnakeController : MonoBehaviour
@@ -49,7 +50,6 @@ public class SnakeController : MonoBehaviour
     public LayerMask stoppingLayers;
     public Pathfinding2D snakePath;
 
-    private LevelManager levelManager;
     private Transform snakeTransformPos;
     private Vector3 snakeHeadPos;
 
@@ -80,8 +80,18 @@ public class SnakeController : MonoBehaviour
             InitSnake();
         }
 
-        levelManager = LevelManager.Get();
-        levelManager.OnPlayerMove += MoveSnake;
+        var gameManager = GameManager.Get();
+        if (gameManager)
+        {
+            PlayerMovement playerMovement = gameManager.GetPlayerMovement();
+            if(playerMovement != null)
+            {
+                playerMovement.OnPlayerMove += MoveSnake;
+            }
+            Assert.IsNotNull(playerMovement);
+        }
+
+        Assert.IsNotNull(gameManager);
     }
 
     public void InitSnake()
@@ -294,8 +304,15 @@ public class SnakeController : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (levelManager != null)
-            levelManager.OnPlayerMove -= MoveSnake;
+        var gameManager = GameManager.Get();
+        if (gameManager)
+        {
+            PlayerMovement playerMovement = gameManager.GetPlayerMovement();
+            if (playerMovement != null)
+            {
+                playerMovement.OnPlayerMove -= MoveSnake;
+            }
+        }
     }
 }
 
